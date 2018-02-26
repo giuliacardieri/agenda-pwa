@@ -5,7 +5,6 @@ var getUser = function getUser() {
 };
 
 var setUser = function setUser() {
-	console.log('first');
 	localStorage.setItem('user', JSON.stringify({"voice": "on",}));
 };
 

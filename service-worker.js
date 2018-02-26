@@ -2,13 +2,13 @@
 
 var CACHE = 'pwabuilder-precache';
 var precacheFiles = [
-  '/index.html',
-  '/settings.html',
+  'index.html',
+  'settings.html',
   'css/style.css',
   'css/materialize.min.css',
   '/js/materialize.min.js',
   '/js/app.js',
-  '/service-worker.js',
+  'service-worker.js',
   '/js/script.js',
   '/js/settings-script.js',
   '/js/speech-recognition.js',
@@ -71,7 +71,7 @@ function update(request) {
 }
 
 function fromServer(request){
-  //this is the fallback if it is not in the cahche to go to the server and get it
+  //this is the fallback if it is not in the cache to go to the server and get it
 return fetch(request).then(function(response){ return response})
 }
 
