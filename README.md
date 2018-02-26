@@ -1,2 +1,2 @@
-# dinoapp
-A progressive web app for dinokiki.com
+# Agenda App
+A progressive web app for events focusing on metadesign, multimodality and contexts of use.
