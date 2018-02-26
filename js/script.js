@@ -5,7 +5,7 @@ var getUser = function getUser() {
 };
 
 var setUser = function setUser(user) {
-	localStorage.setItem('user', user);
+	localStorage.setItem('user', {"voice": "on",});
 };
 
 var userPreferences = function userPreferences() {
