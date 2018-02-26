@@ -1,42 +1,32 @@
-/**
- * Native (webkit) speech recognition API.
- * @see {@link https://shapeshed.com/html5-speech-recognition-api/}
-**/
+var speak = new webkitSpeechRecognition();
 
-var user = getUser();
+speak.lang = 'en-us';
 
-if (user.voice === 'on') {
-  console.log('is_on');
-  var speak = new webkitSpeechRecognition();
+speak.onresult = function(event) {
+  var text = ''
+  , i
+  , name;
 
-  speak.lang = 'en-us';
+  for(i = event.resultIndex; i < event.results.length; ++i) {
+    text += event.results[i][0].transcript;
+  }
+ //console.log(text); // showing what he heard
+  
+  name = text.toLowerCase();
+  postText(name);
+};
 
-  speak.onresult = function(event) {
-    var text = ''
-    , i
-    , name;
+speak.onend = function () {
+  this.start();
+};
 
-    for(i = event.resultIndex; i < event.results.length; ++i) {
-      text += event.results[i][0].transcript;
-    }
-   //console.log(text); // showing what he heard
-    
-    name = text.toLowerCase();
-    postText(name);
-  };
+let postText = (text) => {
+  console.log('vc falou ' + text);
+  $('.voice-elem.current-elem').siblings('input').val(text);
+  Materialize.updateTextFields();
+};
 
-  speak.onend = function () {
-    this.start();
-  };
-
-  let postText = (text) => {
-    console.log('vc falou ' + text);
-    $('.voice-elem.current-elem').siblings('input').val(text);
-    Materialize.updateTextFields();
-  };
-
-  speak.start();
-}
+speak.start();
 
 $( document ).ready(function(){
 
