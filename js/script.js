@@ -4,8 +4,9 @@ var getUser = function getUser() {
 	return null;
 };
 
-var setUser = function setUser(user) {
-	localStorage.setItem('user', {"voice": "on",});
+var setUser = function setUser() {
+	console.log('first');
+	localStorage.setItem('user', JSON.stringify({"voice": "on",}));
 };
 
 var userPreferences = function userPreferences() {
@@ -25,7 +26,7 @@ var userPreferences = function userPreferences() {
 
 $( document ).ready(function(){
 	if (!getUser())
-		setUser(JSON.stringify(user));
+		setUser();
 
 	userPreferences();
 
