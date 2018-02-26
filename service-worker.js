@@ -8,12 +8,9 @@ var precacheFiles = [
   'css/materialize.min.css',
   '/js/materialize.min.js',
   '/js/app.js',
-  'service-worker.js',
   '/js/script.js',
   '/js/settings-script.js',
   '/js/speech-recognition.js',
-  'js/user.json',
-  'manifest.json',
   'fonts/'
     ];
 
