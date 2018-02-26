@@ -2,16 +2,7 @@
 
 var CACHE = 'pwabuilder-precache';
 var precacheFiles = [
-  'index.html',
-  'settings.html',
-  'css/style.css',
-  'css/materialize.min.css',
-  '/js/materialize.min.js',
-  '/js/app.js',
-  '/js/script.js',
-  '/js/settings-script.js',
-  '/js/speech-recognition.js',
-  'fonts/'
+
     ];
 
 //Install stage sets up the cache-array to configure pre-cache content
