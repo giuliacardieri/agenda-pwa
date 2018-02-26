@@ -1,0 +1,7 @@
+.voice-elem, .speech-elem {
+	opacity: 0;
+	&.active {
+		opacity: 1;
+	}
+}
+
