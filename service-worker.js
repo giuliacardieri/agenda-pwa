@@ -1,7 +1,20 @@
-//This is the service worker with the Cache-first network
+// Copyright 2016 Google Inc.
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//      http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-var CACHE = 'pwabuilder-precache';
-var precacheFiles = [
+var dataCacheName = 'agendaAppData';
+var cacheName = 'agendaApp';
+var filesToCache = [
   'index.html',
   'settings.html',
   'css/style.css',
@@ -13,62 +26,48 @@ var precacheFiles = [
   'js/script.js',
   'js/settings-script.js',
   'js/speech-recognition.js',
-    ];
+];
 
-//Install stage sets up the cache-array to configure pre-cache content
-self.addEventListener('install', function(evt) {
-  console.log('The service worker is being installed.');
-  evt.waitUntil(precache().then(function() {
-    console.log('[ServiceWorker] Skip waiting on install');
-      return self.skipWaiting();
-  })
+self.addEventListener('install', function(e) {
+  console.log('[ServiceWorker] Install');
+  e.waitUntil(
+    caches.open(cacheName).then(function(cache) {
+      console.log('[ServiceWorker] Caching app shell');
+      console.log('filesToCache' + filesToCache);
+      return cache.addAll(filesToCache);
+    })
   );
 });
 
-
-//allow sw to control of current page
-self.addEventListener('activate', function(event) {
-console.log('[ServiceWorker] Claiming clients for current page');
-      return self.clients.claim();
-
+self.addEventListener('activate', function(e) {
+  console.log('[ServiceWorker] Activate');
+  e.waitUntil(
+    caches.keys().then(function(keyList) {
+      return Promise.all(keyList.map(function(key) {
+        if (key !== cacheName && key !== dataCacheName) {
+          console.log('[ServiceWorker] Removing old cache', key);
+          return caches.delete(key);
+        }
+      }));
+    })
+  );
+  /*
+   * Fixes a corner case in which the app wasn't returning the latest data.
+   * The code below essentially lets you activate the service worker faster.
+   */
+  return self.clients.claim();
 });
 
-self.addEventListener('fetch', function(evt) {
-  console.log('The service worker is serving the asset.'+ evt.request.url);
-  evt.respondWith(fromCache(evt.request).catch(fromServer(evt.request)));
-  evt.waitUntil(update(evt.request));
+self.addEventListener('fetch', function(e) {
+  console.log('[Service Worker] Fetch', e.request.url);
+  /*
+   * The app is asking for app shell files. In this scenario the app uses the
+   * "Cache, falling back to the network" offline strategy:
+   * https://jakearchibald.com/2014/offline-cookbook/#cache-falling-back-to-network
+   */
+    e.respondWith(
+      caches.match(e.request).then(function(response) {
+        return response || fetch(e.request);
+      })
+    );
 });
-
-
-function precache() {
-  return caches.open(CACHE).then(function (cache) {
-    return cache.addAll(precacheFiles);
-  });
-}
-
-
-function fromCache(request) {
-  //we pull files from the cache first thing so we can show them fast
-  return caches.open(CACHE).then(function (cache) {
-    return cache.match(request).then(function (matching) {
-      return matching || Promise.reject('no-match');
-    });
-  });
-}
-
-
-function update(request) {
-  //this is where we call the server to get the newest version of the 
-  //file to use the next time we show view
-  return caches.open(CACHE).then(function (cache) {
-    return fetch(request).then(function (response) {
-      return cache.put(request, response);
-    });
-  });
-}
-
-function fromServer(request){
-  //this is the fallback if it is not in the cache to go to the server and get it
-return fetch(request).then(function(response){ return response})
-}
-
