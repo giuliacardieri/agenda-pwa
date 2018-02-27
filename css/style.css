@@ -2,20 +2,23 @@
 .btn-flat--with_icon {
   padding: 0; }
 
-/* main */
-.main--settings {
-  margin: 5vh 10vw;
-  width: 80vw; }
-
 .btn--speech {
   padding: 0px;
   position: absolute;
   right: 10px;
   top: 7px; }
 
+/* main */
+.main--settings {
+  margin: 5vh 10vw;
+  width: 80vw; }
+
 .voice-elem, .speech-elem {
   opacity: 0; }
   .voice-elem.active, .speech-elem.active {
     opacity: 1; }
+
+body.night_mode-elem.active {
+  background-color: #333; }
 
 /*# sourceMappingURL=style.css.map */

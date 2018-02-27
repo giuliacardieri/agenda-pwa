@@ -1,11 +1,16 @@
+var night_mode;
+
 var getUser = function getUser() {
 	if (localStorage.getItem('user'))
 		return JSON.parse(localStorage.getItem('user'));
 	return null;
 };
 
-var setUser = function setUser() {
-	localStorage.setItem('user', JSON.stringify({"voice": "on",}));
+var setUser = function setUser(user_new) {
+  if (user_new)
+	 localStorage.setItem('user', user_new);
+  else
+    localStorage.setItem('user', JSON.stringify({"voice": "on",}));
 };
 
 var userPreferences = function userPreferences() {
@@ -23,9 +28,26 @@ var userPreferences = function userPreferences() {
 		$('.night_mode-elem').addClass('active');
 }
 
+var success_loc = function success_loc(pos) {
+  var crd
+  , times;
+
+  crd = pos.coords;
+  times = SunCalc.getTimes(new Date(), crd.latitude, crd.longitude);
+
+  if (JSON.stringify(times.sunset.getTime()) > new Date().getTime() 
+        || JSON.stringify(times.sunrise.getTime()) < new Date().getTime()) {
+    night_mode = true;
+  }
+  else
+    night_mode = false;
+};
+
 $( document ).ready(function(){
 	if (!getUser())
 		setUser();
+
+  navigator.geolocation.getCurrentPosition(success_loc);
 
 	userPreferences();
 
