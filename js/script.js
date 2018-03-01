@@ -24,8 +24,10 @@ var userPreferences = function userPreferences() {
 		$('.speech-elem').addClass('active');
 	if (user.speech_movement === 'on')
 		$('.speech_movement-elem').addClass('active');
-	if (user.night_mode === 'on')
+	if (user.night_mode === 'on' && night_mode === true)
 		$('.night_mode-elem').addClass('active');
+  else 
+    $('.night_mode-elem').removeClass('active');
 }
 
 var success_loc = function success_loc(pos) {
@@ -35,9 +37,12 @@ var success_loc = function success_loc(pos) {
   crd = pos.coords;
   times = SunCalc.getTimes(new Date(), crd.latitude, crd.longitude);
 
-  if (JSON.stringify(times.sunset.getTime()) > new Date().getTime() 
-        || JSON.stringify(times.sunrise.getTime()) < new Date().getTime()) {
+  if (times.sunset.getTime() < new Date().getTime() || times.sunrise.getTime() > new Date().getTime()) {
+    console.log('time: ' + new Date().getTime());
+    console.log('sunset: ' + times.sunset.getTime());
+    console.log('sunrise: ' + times.sunrise.getTime());
     night_mode = true;
+    userPreferences();
   }
   else
     night_mode = false;
