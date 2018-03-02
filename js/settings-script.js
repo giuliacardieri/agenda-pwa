@@ -11,12 +11,12 @@ var loadForm = function loadForm() {
 	var user =  getUser();
 	if (user.voice === "on")
 		$('.form--settings input.voice').attr('checked', 'checked');
-	if (user.voice_movement === "on")
-		$('.form--settings input.voice_movement').attr('checked', 'checked');
 	if (user.speech === "on")
 		$('.form--settings input.speech').attr('checked', 'checked');
-	if (user.speech_movement === "on")
-		$('.form--settings input.speech_movement').attr('checked', 'checked');
+	if (user.swipe === "on")
+		$('.form--settings input.swipe').attr('checked', 'checked');
+	if (user.vibrate === "on")
+		$('.form--settings input.vibrate').attr('checked', 'checked');
 	if (user.night_mode === "on")
 		$('.form--settings input.night_mode').attr('checked', 'checked');
 };
@@ -28,8 +28,7 @@ $( document ).ready(function(){
 		e.preventDefault();
 		user = formToObject($('.form--settings').serializeArray());
 		setUser(JSON.stringify(user));
+		if (user.vibrate === 'on')
+  			navigator.vibrate(200);
 	});
-
-	$('.texts').on('click', function(){ console.log('clicou text');});
-
 })

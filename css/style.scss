@@ -1,2 +1,7 @@
+@import 'variables';
 @import 'components';
 @import 'user_prefs';
+
+.hidden {
+	display: none;
+}

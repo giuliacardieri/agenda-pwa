@@ -7,17 +7,17 @@
   <title>Home - Agenda App</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
   <link rel="stylesheet" type="text/css" href="css/style.css">
+
   <link rel="manifest" href="manifest.json">
 
-
-  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/suncalc.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/speech-recognition.js"></script>
-  <script src="js/app.js"></script>
+  <script type="text/javascript" src="js/jquery.mobile-events.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/speech-recognition.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
 
   <!-- Add to home screen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,10 +27,11 @@
   <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
   <meta name="msapplication-TileColor" content="#2F3BA2">
 </head>
+
 <body class="night_mode-elem">  
 
   <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper purple">
       <a href="#!" class="brand-logo">Agenda App</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
@@ -48,66 +49,78 @@
     <div class="cards-wrapper">
       <div class="row">
         <div class="col s12 m6">
-          <div class="card">
+          <div class="card swipe-elem night_mode-elem">
+            <div class="card--completed hidden">
+              <i class="material-icons">done</i>
+            </div>
+            <div class="card--canceled hidden">
+              <i class="material-icons">clear</i>
+            </div>
             <div class="card-content">
               <span class="card-title">
                 <span class="speech-talk">Take Mila to vet</span>
                 <a class="speech-elem waves-effect waves-teal btn-flat btn-flat--with_icon"><i class="material-icons">volume_up</i></a>
               </span>
               <p>
-                <i class="material-icons">schedule</i>
+                <i class="material-icons icons--p">schedule</i>
                 2pm - 3pm
               </p>
               <p>
-                <i class="material-icons">room</i>
+                <i class="material-icons icons--p">room</i>
                 Ishizuka Vet
               </p>
               <p>
-                <i class="material-icons">pets</i>
+                <i class="material-icons icons--p">pets</i>
                 Pets
               </p>
             </div>
             <div class="card-action">
-              <a href="#">Mark as completed</a>
-              <a href="#">Cancel</a>
+              <a href="#" class="purple-text text-darken-3">Mark as completed</a>
+              <a href="#" class="purple-text text-darken-3">Cancel</a>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col s12 m6">
-          <div class="card">
+          <div class="card swipe-elem night_mode-elem">
+            <div class="card--completed hidden">
+              <i class="material-icons">done</i>
+            </div>
+            <div class="card--canceled hidden">
+              <i class="material-icons">clear</i>
+            </div>
             <div class="card-content">
               <span class="card-title">
                 <span class="speech-talk">Go to the Gym</span>
                 <a class="speech-elem waves-effect waves-teal btn-flat btn-flat--with_icon"><i class="material-icons">volume_up</i></a>
               </span>
               <p>
-                <i class="material-icons">schedule</i>
+                <i class="material-icons icons--p">schedule</i>
                 3:30pm - 5pm
               </p>
               <p>
-                <i class="material-icons">room</i>
+                <i class="material-icons icons--p">room</i>
                 Clube de Campo
               </p>
               <p>
-                <i class="material-icons">face</i>
+                <i class="material-icons icons--p">face</i>
                 Personal
               </p>
             </div>
             <div class="card-action">
-              <a href="#">Mark as completed</a>
-              <a href="#">Cancel</a>
+              <a href="#" class="purple-text text-darken-3">Mark as completed</a>
+              <a href="#" class="purple-text text-darken-3">Cancel</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <a href="#modalAdd" class="btn-floating btn--add btn-large waves-effect waves-light modal-trigger"><i class="material-icons">add</i></a>
+    <a href="#modalAdd" class="purple btn-floating btn--add btn-large waves-effect waves-light modal-trigger"><i class="material-icons">add</i></a>
 
   </main>
 
-  <div id="modalAdd" class="modal">
+  <div id="modalAdd" class="modal night_mode-elem">
     <div class="modal-content">
       <div class="row">
         <div class="col s12">

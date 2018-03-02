@@ -18,16 +18,14 @@ var userPreferences = function userPreferences() {
 
 	if (user.voice === 'on')
 		$('.voice-elem').addClass('active');
-	if (user.voice_movement === 'on')
-		$('.voice_movement-elem').addClass('active');
 	if (user.speech === 'on')
 		$('.speech-elem').addClass('active');
-	if (user.speech_movement === 'on')
-		$('.speech_movement-elem').addClass('active');
+  if (user.swipe === 'on')
+    $('.swipe-elem').addClass('active');
 	if (user.night_mode === 'on' && night_mode === true)
-		$('.night_mode-elem').addClass('active');
+		$('.night_mode-elem').addClass('on');
   else 
-    $('.night_mode-elem').removeClass('active');
+    $('.night_mode-elem').removeClass('on');
 }
 
 var success_loc = function success_loc(pos) {
@@ -95,5 +93,27 @@ $( document ).ready(function(){
     var synth = new SpeechSynthesisUtterance($('.speech-elem.current-elem').siblings('.speech-talk').html());
     window.speechSynthesis.speak(synth);
   });
+
+  $('.card.swipe-elem.active').on('swiperight', function() {
+    console.log('swipe right');
+    $('.card--completed').removeClass('hidden');
+    $(this).animate({
+      right: '-350px',
+      opacity: 0,
+    }, 1500, function() {
+      $(this).addClass('hidden');
+    });
+  });
+
+  $('.card.swipe-elem.active').on('swipeleft', function() {
+    $('.card--canceled').removeClass('hidden');
+    $(this).animate({
+      left: '-350px',
+      opacity: 0,
+    }, 1500, function() {
+      $(this).addClass('hidden');
+    });
+  });
+
      
 })
