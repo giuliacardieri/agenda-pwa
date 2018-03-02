@@ -94,8 +94,18 @@ $( document ).ready(function(){
     window.speechSynthesis.speak(synth);
   });
 
+  $('.btn--completed').on('click', function() {
+    // TODO make this better
+    $(this).parent().parent().parent().find('.card.swipe-elem.active').trigger('swiperight');
+  });
+
+  $('.btn--cancel').on('click', function() {
+    // TODO make this better
+    $(this).parent().parent().parent().find('.card.swipe-elem.active').trigger('swipeleft');
+  });
+
+
   $('.card.swipe-elem.active').on('swiperight', function() {
-    console.log('swipe right');
     $('.card--completed').removeClass('hidden');
     $(this).animate({
       right: '-350px',
