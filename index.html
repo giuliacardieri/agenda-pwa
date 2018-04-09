@@ -6,17 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home - Agenda App</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <link rel="manifest" href="manifest.json">
 
+  <script type="text/javascript" src="js/categories.json"></script>
+  <script type="text/javascript" src="js/db.json"></script>
+  <script type="text/javascript" src="js/handlebars-v4.0.11.js"></script>
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
-  <script type="text/javascript" src="js/suncalc.js"></script>
   <script type="text/javascript" src="js/jquery.mobile-events.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
-  <script type="text/javascript" src="js/speech-recognition.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
 
   <!-- Add to home screen for Safari on iOS -->
@@ -28,112 +28,25 @@
   <meta name="msapplication-TileColor" content="#2F3BA2">
 </head>
 
-<body class="night_mode-elem">  
+<body class="">  
 
-  <nav>
-    <div class="nav-wrapper purple">
-      <a href="#!" class="brand-logo">Agenda App</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Home</a></li>
-        <li><a href="settings.html">Settings</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="#">Home</a></li>
-        <li><a href="settings.html">Settings</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
-    <div class="cards-wrapper">
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card swipe-elem night_mode-elem">
-            <div class="card--completed hidden">
-              <i class="material-icons">done</i>
-            </div>
-            <div class="card--canceled hidden">
-              <i class="material-icons">clear</i>
-            </div>
-            <div class="card-content">
-              <span class="card-title">
-                <span class="speech-talk">Take Mila to vet</span>
-                <a class="speech-elem waves-effect waves-teal btn-flat btn-flat--with_icon"><i class="material-icons">volume_up</i></a>
-              </span>
-              <p>
-                <i class="material-icons icons--p">schedule</i>
-                2pm - 3pm
-              </p>
-              <p>
-                <i class="material-icons icons--p">room</i>
-                Ishizuka Vet
-              </p>
-              <p>
-                <i class="material-icons icons--p">pets</i>
-                Pets
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="#" class="btn--completed purple-text text-darken-3">Mark as completed</a>
-              <a href="#" class="btn--cancel purple-text text-darken-3">Cancel</a>
-            </div>
-          </div>
+<!-- new section with forms -->
+  <section class="body__add-form-section hidden">
+    <div class="section__add-form">
+      <div class="add-form__header">
+        <div class="nav-wrapper">
+          <a href="#!" class="nav-wrapper__a">
+            <i class="waves-effect material-icons a__icon">arrow_back</i>
+            Add an event
+          </a>
         </div>
       </div>
       <div class="row">
-        <div class="col s12 m6">
-          <div class="card swipe-elem night_mode-elem">
-            <div class="card--completed hidden">
-              <i class="material-icons">done</i>
-            </div>
-            <div class="card--canceled hidden">
-              <i class="material-icons">clear</i>
-            </div>
-            <div class="card-content">
-              <span class="card-title">
-                <span class="speech-talk">Go to the Gym</span>
-                <a class="speech-elem waves-effect waves-teal btn-flat btn-flat--with_icon"><i class="material-icons">volume_up</i></a>
-              </span>
-              <p>
-                <i class="material-icons icons--p">schedule</i>
-                3:30pm - 5pm
-              </p>
-              <p>
-                <i class="material-icons icons--p">room</i>
-                Clube de Campo
-              </p>
-              <p>
-                <i class="material-icons icons--p">face</i>
-                Personal
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="#" class="btn--completed purple-text text-darken-3">Mark as completed</a>
-              <a href="#" class="btn--cancel purple-text text-darken-3">Cancel</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a href="#modalAdd" class="purple btn-floating btn--add btn-large waves-effect waves-light modal-trigger"><i class="material-icons">add</i></a>
-
-  </main>
-
-  <div id="modalAdd" class="modal night_mode-elem">
-    <div class="modal-content">
-      <div class="row">
-        <div class="col s12">
-          <h4>Add an event</h4> 
-        </div>
-      </div>
-      <div class="row">
-        <form class="col s12">
+        <form class="add-form__form col s12">
           <div class="row">
             <div class="input-field col s12">
               <input id="title" type="text" class="validate">
               <label for="title">Title</label>
-              <button class="voice-elem btn-flat btn--speech"><i class="material-icons">keyboard_voice</i></button>
             </div>
           </div>
           <div class="row">
@@ -142,12 +55,12 @@
               <label for="date">Date</label>
             </div>
           </div>
-          <div class="row">
+         <!--  <div class="row">
             <div class="input-field col s12">
               <input id="date" type="date">
               <label for="date">Date - no materializ</label>
             </div>
-          </div>
+          </div> -->
           <div class="row">
             <div class="input-field col s6">
               <input id="time_from" type="text" class="validate timepicker">
@@ -162,26 +75,117 @@
             <div class="input-field col s12">
               <input id="location" type="text" class="validate">
               <label for="location">Location</label>
-              <button class="voice-elem btn-flat btn--speech"><i class="material-icons">keyboard_voice</i></button>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <select>
                 <option value="" disabled selected>Choose your category</option>
-                <option value="1">Personal</option>
-                <option value="2">Pets</option>
-                <option value="3">University</option>
+                <option value="1">Diabetes</option>
+                <option value="2">Exercise</option>
+                <option value="3">Family</option>
+                <option value="3">Health</option>
+                <option value="3">Home</option>
+                <option value="3">Personal</option>
+                <option value="3">Pets</option>
+                <option value="3">School</option>
+                <option value="3">Shopping</option>
+                <option value="3">Social</option>
+                <option value="3">Other</option>
               </select>
               <label>Category</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <button class="right waves-effect waves-light btn" name="action" type="submit">Save</button>
             </div>
           </div>
         </form>
       </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Save</a>
-    </div>
+  </section>
+<!-- end forms -->
+  <div class="body__content-wrapper">
+    <header>
+      <div class="header__app-bar">
+        <div class="nav-wrapper">
+          <a href="#!" class="nav-wrapper__a">Agenda App</a>
+        </div>
+      </div>
+    </header>
+
+    <main>    
+      <div class="main__app-bar-secondary">
+          <p class="app-bar-secondary__p">Today</p>
+      </div>
+      <div class="main__cards-wrapper">
+        <div class="row events-template-results">
+          <script id="events-template" type="text/x-handlebars-template">
+            {{#each this}}
+            <div class="col s12 m6">
+              <div class="cards-wrapper__card card swipe-elem ">
+                <div class="card__action_wrapper--state-completed hidden">
+                  <i class="material-icons">done</i>
+                </div>
+                <div class="card__action_wrapper--state-canceled hidden">
+                  <i class="material-icons">clear</i>
+                </div>
+                <div class="card__card-content card-content">
+                  <span class="card-title">{{title}}</span>
+                  <p>
+                    <i class="material-icons p__icon">schedule</i>
+                    {{time-start}} - {{time-end}}
+                  </p>
+                  <p>
+                    <i class="material-icons p__icon">room</i>
+                    {{location}}
+                  </p>
+                  <p>
+                    <i class="material-icons p__icons">{{icon}}</i>
+                    {{category}}
+                  </p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="card-action__btn--completed">Mark as completed</a>
+                  <a href="#" class="card-action__btn--cancel">Cancel</a>
+                </div>
+              </div>
+            </div>
+            {{/each}}
+          </script>
+        </div>
+      </div>
+      <a href="#modalAdd" class="btn-floating main__btn--add btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+
+    </main>
+
+    <footer class="footer">
+      <nav class="footer__nav">
+        <div class="nav-wrapper">
+          <ul>
+            <li class="nav_li">
+              <a class="li_a a--state-active" href="#">
+                <i class="material-icons a__icons">home</i>
+                <span class="a__span">Home</span>
+              </a>
+            </li>
+            <li class="nav_li">
+              <a class="li_a" href="#">
+                <i class="material-icons a__icons">home</i>
+                <span class="a__span">My Design</span>
+              </a>
+            </li>
+            <li class="nav_li">
+              <a class="li_a" href="#">
+                <i class="material-icons a__icons">schedule</i>
+                <span class="a__span">Past Events</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </footer>
   </div>
 
 </body>

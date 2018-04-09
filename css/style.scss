@@ -1,6 +1,10 @@
+@import 'materialize';
+@import 'components/color';
 @import 'variables';
-@import 'components';
-@import 'user_prefs';
+@import 'bottom-nav';
+@import 'forms';
+@import 'home';
+@import 'mydesign';
 
 .hidden {
 	display: none;

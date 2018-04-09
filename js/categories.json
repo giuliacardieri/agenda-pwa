@@ -1,0 +1,18 @@
+var categories = 
+  { 
+    "categories": [
+    {
+      "1": "Diabetes",
+      "2": "Exercise",
+      "3": "Family",
+      "4": "Health",
+      "5": "Home",
+      "6": "Personal",
+      "7": "Pets",
+      "8": "School",
+      "9": "Shopping",
+      "10": "Social",
+      "11": "Other",
+    }
+  ]
+} ;

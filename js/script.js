@@ -18,48 +18,18 @@ var userPreferences = function userPreferences() {
 
 	if (user.voice === 'on')
 		$('.voice-elem').addClass('active');
-	if (user.speech === 'on')
-		$('.speech-elem').addClass('active');
-  if (user.swipe === 'on')
-    $('.swipe-elem').addClass('active');
-	if (user.night_mode === 'on' && night_mode === true)
-		$('.night_mode-elem').addClass('on');
-  else 
-    $('.night_mode-elem').removeClass('on');
 }
 
-var success_loc = function success_loc(pos) {
-  var crd
-  , times;
-
-  crd = pos.coords;
-  times = SunCalc.getTimes(new Date(), crd.latitude, crd.longitude);
-
-  if (times.sunset.getTime() < new Date().getTime() || times.sunrise.getTime() > new Date().getTime()) {
-    console.log('time: ' + new Date().getTime());
-    console.log('sunset: ' + times.sunset.getTime());
-    console.log('sunrise: ' + times.sunrise.getTime());
-    night_mode = true;
-    userPreferences();
-  }
-  else
-    night_mode = false;
-};
-
-$( document ).ready(function(){
+$(function(){
 	if (!getUser())
 		setUser();
 
-  navigator.geolocation.getCurrentPosition(success_loc);
+  var source = $('#events-template').html();
+  var template = Handlebars.compile(source);
+  var html = template(db);
+  $('.events-template-results').html(html);
 
 	userPreferences();
-
-	$('.button-collapse').sideNav();
-
-	$('.btn--add').on('click', function() {
-		$('#modalAdd').modal('open');
-	});
-	$('.modal').modal();
 
   $('select').material_select();
 
@@ -84,29 +54,19 @@ $( document ).ready(function(){
     aftershow: function(){} //Function for after opening timepicker
   });
 
-  $('.speech-elem, .speech-elem i.material-icons').on('click', function(e) {
-    e.preventDefault();
-
-    $('.speech-elem').removeClass('current-elem');
-    $(this).addClass('current-elem');
-    
-    var synth = new SpeechSynthesisUtterance($('.speech-elem.current-elem').siblings('.speech-talk').html());
-    window.speechSynthesis.speak(synth);
-  });
-
-  $('.btn--completed').on('click', function() {
+  $('.card-action__btn--completed').on('click', function() {
     // TODO make this better
     $(this).parent().parent().parent().find('.card.swipe-elem.active').trigger('swiperight');
   });
 
-  $('.btn--cancel').on('click', function() {
+  $('.card-action__btn--cancel').on('click', function() {
     // TODO make this better
     $(this).parent().parent().parent().find('.card.swipe-elem.active').trigger('swipeleft');
   });
 
 
-  $('.card.swipe-elem.active').on('swiperight', function() {
-    $('.card--completed').removeClass('hidden');
+  $('.card.swipe-elem').on('swiperight', function() {
+    $('.card__action_wrapper--state-completed').removeClass('hidden');
     $(this).animate({
       right: '-350px',
       opacity: 0,
@@ -115,8 +75,8 @@ $( document ).ready(function(){
     });
   });
 
-  $('.card.swipe-elem.active').on('swipeleft', function() {
-    $('.card--canceled').removeClass('hidden');
+  $('.card.swipe-elem').on('swipeleft', function() {
+    $('.card__action_wrapper--state-canceled').removeClass('hidden');
     $(this).animate({
       left: '-350px',
       opacity: 0,
@@ -125,5 +85,26 @@ $( document ).ready(function(){
     });
   });
 
-     
-})
+  $('.nav-wrapper__a').on('click', function() {
+    $('.body__content-wrapper').removeClass('hidden');    
+    $('.body__add-form-section').animate({
+      top: '100vh',
+    }, 200, function() {
+      $('.body__add-form-section').addClass('hidden');
+      $('.main__btn--add').removeClass('hidden');
+    });
+  });
+
+  $('.main__btn--add').on('click', function() {  
+    $(this).addClass('hidden'); 
+    $('.body__add-form-section').removeClass('hidden');
+    $('.body__add-form-section').animate({
+      top: '0vh',
+      left: '0vw',
+      easing: 'easein'
+    }, 225);
+  });
+
+  
+
+});

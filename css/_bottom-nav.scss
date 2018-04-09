@@ -1,0 +1,40 @@
+.footer {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	width: 100vw;
+}
+
+
+.footer__nav {
+	@extend .white;
+	border-top: 1px solid #e0e0e0;
+	box-shadow: 0px 0 0 0;
+	line-height: 1;
+}
+
+.nav_li {
+	width: calc(100%/3);
+}
+
+.li_a {
+	@extend .grey-text, .text-darken-2;
+	font-size: 12px;
+	margin-bottom: 10px;
+	margin-top: 6px;
+	padding: 0px 12px;
+	text-align: center;
+	&.a--state-active {
+		@extend .purple-text;
+	}
+}
+
+.a__icons {
+	height: 24px!important;
+	line-height: 24px!important;
+	text-align: center;
+}
+
+.a__span {
+	line-height: 16px;
+}

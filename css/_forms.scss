@@ -1,0 +1,23 @@
+.body__add-form-section {
+	background-color: color("grey", "lighten-5");
+	left: 100vw;
+	position: absolute;
+	top: 100vh;
+	width: 100vw;
+	z-index: 1;
+}
+
+.add-form__header {
+	@extend nav;
+	background-color: color("deep-orange", "lighten-2");
+}
+
+.add-form__header i.material-icons, .a__icon {
+	display: inline-block;
+	padding-right: 32px;
+	vertical-align: middle;
+}
+
+.add-form__form {
+	margin-top: 24px;
+}
