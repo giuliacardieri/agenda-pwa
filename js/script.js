@@ -56,12 +56,12 @@ $(function(){
 
   $('.card-action__btn--completed').on('click', function() {
     // TODO make this better
-    $(this).parent().parent().parent().find('.card.swipe-elem.active').trigger('swiperight');
+    $(this).parent().parent().parent().find('.card.swipe-elem').trigger('swiperight');
   });
 
   $('.card-action__btn--cancel').on('click', function() {
     // TODO make this better
-    $(this).parent().parent().parent().find('.card.swipe-elem.active').trigger('swipeleft');
+    $(this).parent().parent().parent().find('.card.swipe-elem').trigger('swipeleft');
   });
 
 

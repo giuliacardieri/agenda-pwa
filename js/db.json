@@ -6,6 +6,7 @@ var db = [
   	"location": "Ishizuka Vet",
     "icon": "pets",
   	"category": "Pets",
+    "completed": false,
 	},
 	{
   	"title": "Go to the gym",
@@ -14,5 +15,6 @@ var db = [
   	"location": "Clube de Campo",
     "icon": "fitness_center",
   	"category": "Exercise",
+    "completed": false,
 	}
 ];
