@@ -1,8 +1,8 @@
 var db = [
 	{
   	"title": "Take mila to vet",
-  	"time-start": 2,
-  	"time-end": 3,
+  	"time-start": "14:00",
+  	"time-end": "15:00",
   	"location": "Ishizuka Vet",
     "icon": "pets",
   	"category": "Pets",
@@ -10,8 +10,8 @@ var db = [
 	},
 	{
   	"title": "Go to the gym",
-  	"time-start": 3,
-  	"time-end": 4,
+  	"time-start": "15:00",
+  	"time-end": "16:00",
   	"location": "Clube de Campo",
     "icon": "fitness_center",
   	"category": "Exercise",

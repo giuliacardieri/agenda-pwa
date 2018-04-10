@@ -20,39 +20,60 @@ var userPreferences = function userPreferences() {
 		$('.voice-elem').addClass('active');
 }
 
+var loadDBTemplate = function loadDBTemplate(source) {
+  var template, html;
+  
+  template = Handlebars.compile(source);
+  html = template(db);
+
+  $('.header__tabs').addClass('header__tabs--state-hidden');
+  $('main').html(html);
+
+}
+
+var loadUserPrefsTemplate = function loadUserPrefsTemplate(source) {
+  var template, html;
+  
+  template = Handlebars.compile(source);
+  html = template(userprefs);
+
+  $('.header__tabs').removeClass('header__tabs--state-hidden');
+  $('main').html(html);
+
+  rememberTabsContent();
+  initializeMaterializeComponents();
+}
+
+var rememberTabsContent = function rememberTabsContent() {
+  var id = $('.header__tabs a.active').attr('href');
+  $(id).removeClass('hidden');
+}
+
+var initializeMaterializeComponents = function initializeMaterializeComponents() {
+  $('.datepicker').datepicker();
+  $('.collapsible').collapsible();
+  $('select').formSelect();
+  $('.timepicker').timepicker();
+  $('.tabs').tabs();
+}
+
+var findCurrentNav = function findCurrentNav(id) {
+  switch (id) {
+    case 'home': loadDBTemplate($('#home-template').html()); break;
+    case 'mydesign': loadUserPrefsTemplate($('#mydesign-template').html(), userprefs); break;
+    case 'pastevents': loadDBTemplate($('#pastevents-template').html(), db); break;
+  }
+}
+
 $(function(){
 	if (!getUser())
 		setUser();
 
-  var source = $('#events-template').html();
-  var template = Handlebars.compile(source);
-  var html = template(db);
-  $('.events-template-results').html(html);
+  loadDBTemplate($('#home-template').html());
 
 	userPreferences();
 
-  $('select').material_select();
-
-  $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year,
-    today: 'Today',
-    clear: 'Clear',
-    close: 'Ok',
-    closeOnSelect: false // Close upon selecting a date,
-  });
-
-  $('.timepicker').pickatime({
-    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
-    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
-    twelvehour: false, // Use AM/PM or 24-hour format
-    donetext: 'OK', // text for done-button
-    cleartext: 'Clear', // text for clear-button
-    canceltext: 'Cancel', // Text for cancel-button
-    autoclose: false, // automatic close timepicker
-    ampmclickable: true, // make AM PM clickable
-    aftershow: function(){} //Function for after opening timepicker
-  });
+  initializeMaterializeComponents();
 
   $('.card-action__btn--completed').on('click', function() {
     // TODO make this better
@@ -95,7 +116,7 @@ $(function(){
     });
   });
 
-  $('.main__btn--add').on('click', function() {  
+  $('main').on('click', '.main__btn--add', function() {  
     $(this).addClass('hidden'); 
     $('.body__add-form-section').removeClass('hidden');
     $('.body__add-form-section').animate({
@@ -105,6 +126,17 @@ $(function(){
     }, 225);
   });
 
+  $('.footer__nav .li__a').on('click', function() {
+    $('.li__a').removeClass('li__a--state-active');
+    $(this).addClass('li__a--state-active');
+    findCurrentNav($(this).attr('id'));
+  });
+
+  $('.header__tabs ul li a').on('click', function() {
+    $('.tabs__div').addClass('hidden');
+    var id = $(this).attr('id');
+    $('#' + id).removeClass('hidden');
+  });
   
 
 });

@@ -1,5 +1,26 @@
-/* main */
-.settings__main {
-	margin: 5vh 10vw;
-	width: 80vw;
+.header__tabs--state-hidden {
+	display: none;
 }
+
+.checkbox-html:not(:checked), .checkbox-html:checked {
+	margin-top: 3px;
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.checkbox-html + label {
+	font-size: 1rem;
+	line-height: 1.5rem;
+	padding-left: 20px;
+}
+
+.checkbox-html + label:before, .checkbox-html:not(.filled-in) + label:after {
+	border: 0;
+	height: inherit;
+	width: inherit;
+}
+
+.collapsible-header__icon {
+	color: color("pink", "lighten-2");
+}
+

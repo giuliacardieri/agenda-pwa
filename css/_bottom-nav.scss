@@ -1,5 +1,5 @@
 .footer {
-	bottom: 0;
+	bottom: -1px;
 	left: 0;
 	position: fixed;
 	width: 100vw;
@@ -17,14 +17,19 @@
 	width: calc(100%/3);
 }
 
-.li_a {
+
+
+nav ul a.li__a {
 	@extend .grey-text, .text-darken-2;
 	font-size: 12px;
 	margin-bottom: 10px;
 	margin-top: 6px;
 	padding: 0px 12px;
 	text-align: center;
-	&.a--state-active {
+	&:hover {
+		@extend .white;
+	}
+	&.li__a--state-active {
 		@extend .indigo-text;
 	}
 }

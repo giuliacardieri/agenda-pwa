@@ -12,6 +12,7 @@
 
   <script type="text/javascript" src="js/categories.json"></script>
   <script type="text/javascript" src="js/db.json"></script>
+  <script type="text/javascript" src="js/userprefs.json"></script>
   <script type="text/javascript" src="js/handlebars-v4.0.11.js"></script>
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -26,6 +27,249 @@
   <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
   <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
   <meta name="msapplication-TileColor" content="#2F3BA2">
+
+  <!-- handlebars templates -->
+    <script id="home-template" type="text/x-handlebars-template"> 
+      <div class="main__app-bar-secondary">
+          <p class="app-bar-secondary__p">Today</p>
+      </div>
+      <div class="main__cards-wrapper">
+        <div class="row">
+          {{#each this}}
+            <div class="col s12 m6">
+              <div class="cards-wrapper__card card medium swipe-elem ">
+                <div class="card__action_wrapper--state-completed hidden">
+                  <i class="material-icons">done</i>
+                </div>
+                <div class="card__action_wrapper--state-canceled hidden">
+                  <i class="material-icons">clear</i>
+                </div>
+                <div class="card-image">
+                  <img src="images/{{category}}.JPG">
+                  <span class="card-title">{{title}}</span>
+                </div>
+                <div class="card__card-content card-content">
+                  <!-- <span class="card-title">{{title}}</span> -->
+                  <p>
+                    <i class="material-icons p__icon">schedule</i>
+                    {{time-start}} - {{time-end}}
+                  </p>
+                  <p>
+                    <i class="material-icons p__icon">room</i>
+                    {{location}}
+                  </p>
+                  <p>
+                    <i class="material-icons p__icon">{{icon}}</i>
+                    {{category}}
+                  </p>
+                </div>
+                <div class="card-action">
+                  <a href="#" class="card-action__btn--completed">Mark as completed</a>
+                  <a href="#" class="card-action__btn--cancel">Delete</a>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      <a href="#" class="btn-floating main__btn--add btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+    </script>
+    <script id="mydesign-template" type="text/x-handlebars-template">
+      <div class="row">
+        <div id="checkbox" class="tabs__div col s12 hidden">
+          <div class="row">
+            <ul class="collapsible">
+              <li class="checkbox__type1 checkbox__type1--state-chosen">
+                <div class="collapsible-header">
+                  <i class="material-icons collapsible-header__icon">done</i>
+                  Checkbox 1
+                </div>
+                <div class="collapsible-body">
+                  <p>
+                    <label for="checkbox-type1">
+                      <input id="checkbox-type1" type="checkbox" name="checkbox-type1">
+                      <span>Checkbox</span>
+                    </label>
+                  </p>
+                  <div class="right-align">
+                    <button class="btn waves-effect">Chosen</button>
+                  </div>
+                </div>
+              </li>
+              <li class="checkbox__type2">
+                <div class="collapsible-header">
+                  Checkbox 2
+                </div>
+                <div class="collapsible-body">
+                  <div>
+                    <input type="checkbox" name="checkbox-type2" class="checkbox-html">
+                    <label for="checkbox-type2">Checkbox</label>
+                  </div>
+                  <div class="right-align">
+                    <button class="btn waves-effect">Choose</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="datepicker" class="tabs__div col s12 hidden">
+          <div class="row">
+            <ul class="collapsible">
+              <li class="datepicker__type1 datepicker__type1--state-chosen">
+                <div class="collapsible-header">
+                  <i class="material-icons collapsible-header__icon">done</i>
+                  Datepicker 1
+                </div>
+                <div class="collapsible-body">
+                  <div class="input-field">
+                    <input type="text" class="datepicker datepicker-test" name="datepicker-type1">
+                    <label for="datepicker-type1">Date</label>
+                  </div>
+                  <div class="right-align">
+                    <button class="btn waves-effect">Chosen</button>
+                  </div>
+                </div>
+              </li>
+              <li class="datepicker__type2">
+                <div class="collapsible-header">
+                  Datepicker 2
+                </div>
+                <div class="collapsible-body">
+                  <div class="input-field">
+                    <input type="date" name="datepicker-type2">
+                    <label for="datepicker-type2">Date</label>
+                  </div>
+                  <div class="right-align">
+                    <button class="btn waves-effect">Choose</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="input" class="tabs__div col s12 hidden">
+          <div class="row">
+            <ul class="collapsible">
+              <li class="input__type1 input__type1--state-chosen">
+                <div class="collapsible-header">
+                  <i class="material-icons collapsible-header__icon">done</i>
+                  Input 1
+                </div>
+                <div class="collapsible-body">
+                  <div class="input-field">
+                    <input type="text" name="input-type1">
+                    <label for="input-type1">Text</label>
+                  </div>
+                  <div class="right-align">
+                    <button class="btn waves-effect">Chosen</button>
+                  </div>
+                </div>
+              </li>
+              <li class="input__type2">
+                <div class="collapsible-header">
+                  Input 2
+                </div>
+                <div class="collapsible-body">
+                  <div class="input-field">
+                    <input type="text" name="input-type2">
+                    <label for="input-type2">Text</label>
+                  </div>
+                  <div class="right-align">
+                    <button class="btn waves-effect">Choose</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="select" class="tabs__div col s12 hidden">
+          <div class="row">
+            <ul class="collapsible">
+              <li class="select__type1 select__type1--state-chosen">
+                <div class="collapsible-header">
+                  <i class="material-icons collapsible-header__icon">done</i>
+                  Select 1
+                </div>
+                <div class="collapsible-body">
+                  <div class="input-field">    
+                    <select>
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                  </div>
+                  <div class="right-align">
+                    <button class="btn waves-effect">Chosen</button>
+                  </div>
+                </div>
+              </li>
+              <li class="select__type2">
+                <div class="collapsible-header">
+                  Select 2
+                </div>
+                <div class="collapsible-body">
+                  <div class="input-field">
+                    <select class="browser-default">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                  </div>
+                  <div class="right-align">
+                    <button class="btn waves-effect">Choose</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="timepicker" class="tabs__div col s12 hidden">
+          <div class="row">
+            <ul class="collapsible">
+              <li class="timepicker__type1 select__type1--state-chosen">
+                <div class="collapsible-header">
+                  <i class="material-icons collapsible-header__icon">done</i>
+                  Timepicker 1
+                </div>
+                <div class="collapsible-body">
+                  <div class="input-field">
+                    <input type="text" class="timepicker" name="timepicker-type1">
+                    <label for="timepicker-type1">Time</label>
+                  </div>
+                  <div class="right-align">
+                    <button class="btn waves-effect">Chosen</button>
+                  </div>
+                </div>
+              </li>
+              <li class="timepicker__type2">
+                <div class="collapsible-header">
+                  Timepicker 2
+                </div>
+                <div class="collapsible-body">
+                  <div class="input-field col s6">
+                    <input type="number" name="timepicker-type2-hours">
+                    <label for="timepicker-type2">Hours</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input type="number" name="timepicker-type2-minutes">
+                    <label for="timepicker-type2">Minutes</label>
+                  </div>
+                  <div class="right-align">
+                    <button class="btn waves-effect">Choose</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script id="pastevents-template" type="text/x-handlebars-template">
+        <div>teste pastevents </div>
+    </script>
 </head>
 
 <body class="">  
@@ -72,6 +316,14 @@
             </div>
           </div>
           <div class="row">
+            <p class="col s6">
+              <label for="all_day">
+                <input type="checkbox" name="all_day" id="all_day"/>
+                <span>All day</span>
+              </label>
+            </p>
+          </div>
+          <div class="row">
             <div class="input-field col s12">
               <input id="location" type="text" class="validate">
               <label for="location">Location</label>
@@ -112,51 +364,19 @@
         <div class="nav-wrapper">
           <a href="#!" class="nav-wrapper__a">Agenda App</a>
         </div>
+      </div>       
+      <div class="header__tabs header__tabs--state-hidden col s12">
+        <ul class="tabs">
+          <li class="tab col s3"><a class="active" href="#checkbox">Checkbox</a></li>
+          <li class="tab col s3"><a href="#datepicker">Datepicker</a></li>
+          <li class="tab col s3"><a href="#input">Input</a></li>
+          <li class="tab col s3"><a href="#select">Select</a></li>
+          <li class="tab col s3"><a href="#timepicker">Timepicker</a></li>
+        </ul>
       </div>
     </header>
 
-    <main>    
-      <div class="main__app-bar-secondary">
-          <p class="app-bar-secondary__p">Today</p>
-      </div>
-      <div class="main__cards-wrapper">
-        <div class="row events-template-results">
-          <script id="events-template" type="text/x-handlebars-template">
-            {{#each this}}
-            <div class="col s12 m6">
-              <div class="cards-wrapper__card card swipe-elem ">
-                <div class="card__action_wrapper--state-completed hidden">
-                  <i class="material-icons">done</i>
-                </div>
-                <div class="card__action_wrapper--state-canceled hidden">
-                  <i class="material-icons">clear</i>
-                </div>
-                <div class="card__card-content card-content">
-                  <span class="card-title">{{title}}</span>
-                  <p>
-                    <i class="material-icons p__icon">schedule</i>
-                    {{time-start}} - {{time-end}}
-                  </p>
-                  <p>
-                    <i class="material-icons p__icon">room</i>
-                    {{location}}
-                  </p>
-                  <p>
-                    <i class="material-icons p__icons">{{icon}}</i>
-                    {{category}}
-                  </p>
-                </div>
-                <div class="card-action">
-                  <a href="#" class="card-action__btn--completed">Mark as completed</a>
-                  <a href="#" class="card-action__btn--cancel">Delete</a>
-                </div>
-              </div>
-            </div>
-            {{/each}}
-          </script>
-        </div>
-      </div>
-      <a href="#modalAdd" class="btn-floating main__btn--add btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+    <main class="body__main">  
 
     </main>
 
@@ -165,19 +385,19 @@
         <div class="nav-wrapper">
           <ul>
             <li class="nav_li">
-              <a class="li_a a--state-active" href="#">
+              <a id="home" class="li__a li__a--state-active" href="#">
                 <i class="material-icons a__icons">home</i>
                 <span class="a__span">Home</span>
               </a>
             </li>
             <li class="nav_li">
-              <a class="li_a" href="#">
-                <i class="material-icons a__icons">home</i>
+              <a id="mydesign" class="li__a" href="#">
+                <i class="material-icons a__icons">face</i>
                 <span class="a__span">My Design</span>
               </a>
             </li>
             <li class="nav_li">
-              <a class="li_a" href="#">
+              <a id="pastevents" class="li__a" href="#">
                 <i class="material-icons a__icons">schedule</i>
                 <span class="a__span">Past Events</span>
               </a>

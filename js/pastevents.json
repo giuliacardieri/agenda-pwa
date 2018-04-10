@@ -1,0 +1,20 @@
+var userprefs = [
+	{
+  	"title": "Take mila to vet",
+  	"time-start": 2,
+  	"time-end": 3,
+  	"location": "Ishizuka Vet",
+    "icon": "pets",
+  	"category": "Pets",
+    "completed": false,
+	},
+	{
+  	"title": "Go to the gym",
+  	"time-start": 3,
+  	"time-end": 4,
+  	"location": "Clube de Campo",
+    "icon": "fitness_center",
+  	"category": "Exercise",
+    "completed": false,
+	}
+];
