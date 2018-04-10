@@ -69,6 +69,10 @@ $(function(){
 	if (!getUser())
 		setUser();
 
+  Handlebars.registerHelper('toLowerCase', function(str) {
+    return str.toLowerCase();
+  });
+
   loadDBTemplate($('#home-template').html());
 
 	userPreferences();
