@@ -1,5 +1,3 @@
-var night_mode;
-
 var getUser = function getUser() {
 	if (localStorage.getItem('user'))
 		return JSON.parse(localStorage.getItem('user'));
@@ -10,7 +8,15 @@ var setUser = function setUser(user_new) {
   if (user_new)
 	 localStorage.setItem('user', user_new);
   else
-    localStorage.setItem('user', JSON.stringify({"voice": "on",}));
+    localStorage.setItem('user', JSON.stringify({
+      "checkbox": 1,
+      "datepicker": 1,
+      "input": 1,
+      "select": 1,
+      "timepicker": 1,
+      "events_style": 1,
+      "images_card": 1,
+    }));
 };
 
 var userPreferences = function userPreferences() {
@@ -28,7 +34,6 @@ var loadDBTemplate = function loadDBTemplate(source) {
 
   $('.header__tabs').addClass('header__tabs--state-hidden');
   $('main').html(html);
-
 }
 
 var loadUserPrefsTemplate = function loadUserPrefsTemplate(source) {
@@ -89,7 +94,6 @@ $(function(){
     $(this).parent().parent().parent().find('.card.swipe-elem').trigger('swipeleft');
   });
 
-
   $('.card.swipe-elem').on('swiperight', function() {
     $('.card__action_wrapper--state-completed').removeClass('hidden');
     $(this).animate({
@@ -110,7 +114,7 @@ $(function(){
     });
   });
 
-  $('.nav-wrapper__a').on('click', function() {
+  $('.nav-wrapper__a--type-back').on('click', function() {
     $('.body__content-wrapper').removeClass('hidden');    
     $('.body__add-form-section').animate({
       top: '100vh',
@@ -118,6 +122,10 @@ $(function(){
       $('.body__add-form-section').addClass('hidden');
       $('.main__btn--add').removeClass('hidden');
     });
+  });
+
+  $('.nav-wrapper__a--type-main').on('click', function() {
+    $('.footer__nav .li__a#home').trigger('click');
   });
 
   $('main').on('click', '.main__btn--add', function() {  
@@ -141,6 +149,4 @@ $(function(){
     var id = $(this).attr('id');
     $('#' + id).removeClass('hidden');
   });
-  
-
 });
