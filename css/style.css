@@ -6561,6 +6561,9 @@ nav ul a.li__a, .add-form__header ul a.li__a, .header__app-bar ul a.li__a {
 .collapsible-header__icon {
   color: #f06292; }
 
+.collapsible-header:focus {
+  outline: 0; }
+
 .hidden {
   display: none; }
 

@@ -24,3 +24,7 @@
 	color: color("pink", "lighten-2");
 }
 
+.collapsible-header:focus {
+	outline: 0;
+}
+

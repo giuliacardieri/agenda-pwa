@@ -16,17 +16,14 @@ var dataCacheName = 'agendaAppData';
 var cacheName = 'agendaApp';
 var filesToCache = [
   'index.html',
-  'settings.html',
-  'css/style.css',
-  'css/materialize.min.css',
+  'css/style.css',,
   'js/jquery.js',
   'js/materialize.min.js',
-  'js/suncalc.js',
   'js/jquery.mobile-events.min.js',
   'js/app.js',
   'js/script.js',
-  'js/settings-script.js',
-  'js/speech-recognition.js',
+  'images/pets.jpg',
+  'images/exercise.jpg',
 ];
 
 self.addEventListener('install', function(e) {
