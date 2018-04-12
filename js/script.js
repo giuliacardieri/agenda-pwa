@@ -19,11 +19,28 @@ var setUser = function setUser(user_new) {
     }));
 };
 
-var userPreferences = function userPreferences() {
+var userPreferencesDesign = function userPreferencesDesign() {
 	var user = getUser();
 
-	if (user.voice === 'on')
-		$('.voice-elem').addClass('active');
+	if (user.checkbox === 2)
+		$('.checkbox-elem--type-material').addClass('hidden');
+    $('.checkbox-elem--type-browser-default').removeClass('hidden');
+  if (user.datepicker === 2)
+    $('.datepicker-elem').removeClass('datepicker').attr('type', 'date');
+  if (user.input === 2) {
+    $('.input-elem-group__input').addClass('browser-default');
+    $('.input-elem-group__label').addClass('browser-default');
+  }
+  if (user.select === 2) {
+    $('.select-elem').addClass('browser-default');
+    $('.select-elem__label').addClass('browser-default');
+  }
+  if (user.timepicker === 2) {
+    $('.timepicker-elem-group--type-browser-default').removeClass('hidden');
+    $('.timepicker-elem-group--type-material').addClass('hidden');
+  }
+
+  initializeMaterializeComponents();
 }
 
 var loadDBTemplate = function loadDBTemplate(source) {
@@ -74,15 +91,16 @@ $(function(){
 	if (!getUser())
 		setUser();
 
+  userPreferencesDesign();
+
+  initializeMaterializeComponents();
+
   Handlebars.registerHelper('toLowerCase', function(str) {
     return str.toLowerCase();
   });
 
   loadDBTemplate($('#home-template').html());
 
-	userPreferences();
-
-  initializeMaterializeComponents();
 
   $('.card-action__btn--completed').on('click', function() {
     // TODO make this better

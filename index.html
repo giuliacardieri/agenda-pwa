@@ -171,9 +171,9 @@
                   Input 2
                 </div>
                 <div class="collapsible-body">
-                  <div class="input-field">
-                    <input type="text" name="input-type2">
-                    <label for="input-type2">Text</label>
+                  <div class="input-field input-elem-group">
+                    <input type="text" name="input-type2" class="input-elem-group__input browser-default" placeholder="Type text here">
+                    <label for="input-type2" class="input-elem-group__label browser-default">Text</label>
                   </div>
                   <div class="right-align">
                     <button class="btn waves-effect">Choose</button>
@@ -250,12 +250,8 @@
                 </div>
                 <div class="collapsible-body">
                   <div class="input-field col s6">
-                    <input type="number" name="timepicker-type2-hours">
-                    <label for="timepicker-type2">Hours</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input type="number" name="timepicker-type2-minutes">
-                    <label for="timepicker-type2">Minutes</label>
+                    <input type="time" name="timepicker-type2">
+                    <label for="timepicker-type2">Time</label>
                   </div>
                   <div class="right-align">
                     <button class="btn waves-effect">Choose</button>
@@ -288,24 +284,18 @@
       <div class="row">
         <form class="add-form__form col s12">
           <div class="row">
-            <div class="input-field col s12">
-              <input id="title" type="text" class="validate">
-              <label for="title">Title</label>
+            <div class="input-field input-elem-group col s12">
+              <input id="title" type="text" class="input-elem-group__input validate">
+              <label for="title" class="input-elem-group__label">Title</label>
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s12">
-              <input id="date" type="text" class="validate datepicker">
-              <label for="date">Date</label>
+            <div class="input-field input-elem-group col s12">
+              <input id="date" type="text" class="input-elem-group__input datepicker-elem validate datepicker">
+              <label for="date" class="input-elem-group__label">Date</label>
             </div>
           </div>
-         <!--  <div class="row">
-            <div class="input-field col s12">
-              <input id="date" type="date">
-              <label for="date">Date - no materializ</label>
-            </div>
-          </div> -->
-          <div class="row">
+          <div class="row timepicker-elem-group--type-material">
             <div class="input-field col s6">
               <input id="time_from" type="text" class="validate timepicker">
               <label for="time_from">Start time</label>
@@ -315,23 +305,41 @@
               <label for="time_to">End time</label>
             </div>
           </div>
-          <div class="row">
+          <div class="timepicker-elem-group--type-browser-default hidden">
+            <div class="row">
+              <div class="input-field input-elem-group col s6">
+                <input id="time_from" type="time" class="input-elem-group__input validate">
+                <label for="time_from" class="input-elem-group__label">Start time</label>
+              </div>
+              <div class="input-field input-elem-group col s6">
+                <input id="time_to" type="time" class="input-elem-group__input validate">
+                <label for="time_to" class="input-elem-group__label">End time</label>
+              </div>
+            </div>
+          </div>
+          <div class="row checkbox-elem--type-material">
             <p class="col s6">
               <label for="all_day">
-                <input type="checkbox" name="all_day" id="all_day"/>
+                <input type="checkbox" name="all_day" id="all_day" />
                 <span>All day</span>
               </label>
             </p>
           </div>
+          <div class="row checkbox-elem--type-browser-default hidden">
+            <div class="col s12">
+              <input type="checkbox" name="all_day" id="all_day" class="checkbox-html" />
+              <label for="all_day">All day</label>
+            </div>
+          </div>
           <div class="row">
-            <div class="input-field col s12">
-              <input id="location" type="text" class="validate">
-              <label for="location">Location</label>
+            <div class="input-field input-elem-group col s12">
+              <input id="location" type="text" class="validate input-elem-group__input">
+              <label for="location" class="input-elem-group__label">Location</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <select>
+              <select class="select-elem">
                 <option value="" disabled selected>Choose your category</option>
                 <option value="1">Diabetes</option>
                 <option value="2">Exercise</option>
@@ -345,7 +353,7 @@
                 <option value="3">Social</option>
                 <option value="3">Other</option>
               </select>
-              <label>Category</label>
+              <label class="select-elem__label">Category</label>
             </div>
           </div>
           <div class="row">
@@ -357,7 +365,7 @@
       </div>
     </div>
   </section>
-<!-- end forms -->
+
   <div class="body__content-wrapper">
     <header>
       <div class="header__app-bar">

@@ -28,3 +28,31 @@
 	outline: 0;
 }
 
+.input-elem-group__input.browser-default {
+	border: 1px solid #9e9e9e;
+	border-radius: 2.5px;
+	font-size: 16px;
+	padding: 8px;
+	width: 100%;
+	&:focus {
+		outline: 0;
+	}
+}
+
+.select-elem.browser-default {
+	border: 1px solid #9e9e9e;
+}
+
+.input-field > .input-elem-group__label.browser-default,
+.input-field > .select-elem__label.browser-default {
+	color: #9e9e9e;
+	height: 3rem;
+	font-size: 1rem;
+	top: -34px;
+}
+
+.input-field > .input-elem-group__label:not(.label-icon).browser-default.active,
+.input-field > .select-elem__label:not(.label-icon).browser-default.active {
+	transform: translateY(12px) scale(1);
+	transform-origin: 0 0;
+}
