@@ -7,35 +7,45 @@ var getUser = function getUser() {
 var setUser = function setUser(user_new) {
   if (user_new)
 	 localStorage.setItem('user', user_new);
-  else
-    localStorage.setItem('user', JSON.stringify({
-      "checkbox": 1,
-      "datepicker": 1,
-      "input": 1,
-      "select": 1,
-      "timepicker": 1,
-      "events_style": 1,
-      "images_card": 1,
-    }));
+  else {
+    localStorage.setItem('user', JSON.stringify([
+      { 'id': 0, 'name': 'checkbox', 'value': 1 },
+      { 'id': 1, 'name': 'datepicker', 'value': 1 },
+      { 'id': 2, 'name': 'input', 'value': 1 },
+      { 'id': 3, 'name': 'select', 'value': 1 },
+      { 'id': 4, 'name': 'timepicker', 'value': 1 },
+      { 'id': 5, 'name': 'events_style', 'value': 1 },
+      { 'id': 6, 'name': 'images_card', 'value': 1 },
+    ]));
+    userPreferencesDesign();
+  }
 };
+
+var setNewItem = function setNewItem(element, value) {
+  var user;
+  user = getUser();
+  user[element].value = value;
+  setUser(JSON.stringify(user));
+}
 
 var userPreferencesDesign = function userPreferencesDesign() {
 	var user = getUser();
 
-	if (user.checkbox === 2)
+	if (user[0].value == 2) {
 		$('.checkbox-elem--type-material').addClass('hidden');
     $('.checkbox-elem--type-browser-default').removeClass('hidden');
-  if (user.datepicker === 2)
+  }
+  if (user[1].value == 2)
     $('.datepicker-elem').removeClass('datepicker').attr('type', 'date');
-  if (user.input === 2) {
+  if (user[2].value == 2) {
     $('.input-elem-group__input').addClass('browser-default');
     $('.input-elem-group__label').addClass('browser-default');
   }
-  if (user.select === 2) {
+  if (user[3].value == 2) {
     $('.select-elem').addClass('browser-default');
     $('.select-elem__label').addClass('browser-default');
   }
-  if (user.timepicker === 2) {
+  if (user[4].value == 2) {
     $('.timepicker-elem-group--type-browser-default').removeClass('hidden');
     $('.timepicker-elem-group--type-material').addClass('hidden');
   }
@@ -146,15 +156,6 @@ $(function(){
     $('.footer__nav .li__a#home').trigger('click');
   });
 
-  $('main').on('click', '.main__btn--add', function() {  
-    $(this).addClass('hidden'); 
-    $('.body__add-form-section').removeClass('hidden');
-    $('.body__add-form-section').animate({
-      top: '0vh',
-      left: '0vw',
-      easing: 'easein'
-    }, 225);
-  });
 
   $('.footer__nav .li__a').on('click', function() {
     $('.li__a').removeClass('li__a--state-active');
@@ -166,5 +167,26 @@ $(function(){
     $('.tabs__div').addClass('hidden');
     var id = $(this).attr('id');
     $('#' + id).removeClass('hidden');
+  });
+
+  /* btns */
+
+  $('main').on('click', '.main__btn--add', function() {  
+    $(this).addClass('hidden'); 
+    $('.body__add-form-section').removeClass('hidden');
+    $('.body__add-form-section').animate({
+      top: '0vh',
+      left: '0vw',
+      easing: 'easein'
+    }, 225);
+  });
+
+  $('main').on('click', '.btn-choose', function() {
+    setNewItem($(this).attr('data-element'), $(this).attr('data-value'));
+    $('.btn-choose').removeClass('btn-choose--state-chosen').html('Choose');
+    $(this).addClass('btn-choose--state-chosen').html('Chosen');
+    var icon_elem = $(this).attr('data-icon');
+    $('.collapsible-header__span').addClass('hidden');
+    $('.collapsible-header__span-' + icon_elem).removeClass('hidden');
   });
 });
