@@ -37,7 +37,7 @@
         <div class="row">
           {{#each this}}
             <div class="col s12 m6">
-              <div class="cards-wrapper__card card medium swipe-elem ">
+              <div class="cards-wrapper__card card swipe-elem ">
                 <div class="card__action_wrapper--state-completed hidden">
                   <i class="material-icons">done</i>
                 </div>
@@ -52,7 +52,7 @@
                   <!-- <span class="card-title">{{title}}</span> -->
                   <p>
                     <i class="material-icons p__icon">schedule</i>
-                    {{time-start}} - {{time-end}}
+                    {{time_start}} - {{time_end}}
                   </p>
                   <p>
                     <i class="material-icons p__icon">room</i>
@@ -81,7 +81,7 @@
             <ul class="collapsible">
               <li class="checkbox__type1 checkbox__type1--state-chosen">
                 <div class="collapsible-header">
-                  <span class="collapsible-header__span-checkbox-1 collapsible-header__span">
+                  <span class="collapsible-header__span-checkbox-1 elem-0 hidden collapsible-header__span">
                     <i class="material-icons collapsible-header__icon">done</i>
                   </span>
                   Checkbox 1
@@ -94,13 +94,13 @@
                     </label>
                   </p>
                   <div class="right-align">
-                    <button data-icon="checkbox-1" data-value="1" data-element="0" class="btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="checkbox-1" data-value="1" data-element="0" class="checkbox-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
               <li class="checkbox__type2">
                 <div class="collapsible-header">
-                  <span class="collapsible-header__span-checkbox-2 collapsible-header__span hidden">
+                  <span class="collapsible-header__span-checkbox-2 elem-0 collapsible-header__span hidden">
                     <i class="material-icons collapsible-header__icon">done</i>
                   </span>
                   Checkbox 2
@@ -111,7 +111,7 @@
                     <label for="checkbox-type2">Checkbox</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="checkbox-2" data-value="2" data-element="0" class="btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="checkbox-2" data-value="2" data-element="0" class="checkbox-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
@@ -123,7 +123,7 @@
             <ul class="collapsible">
               <li class="datepicker__type1 datepicker__type1--state-chosen">
                 <div class="collapsible-header">
-                  <span class="collapsible-header__span-datepicker-1 collapsible-header__span">
+                  <span class="collapsible-header__span-datepicker-1 hidden elem-1 collapsible-header__span">
                     <i class="material-icons collapsible-header__icon">done</i>
                   </span>
                   Datepicker 1
@@ -134,13 +134,13 @@
                     <label for="datepicker-type1">Date</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="datepicker-1" data-value="1" data-element="1" class="btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="datepicker-1" data-value="1" data-element="1" class="datepicker-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
               <li class="datepicker__type2">
                 <div class="collapsible-header">
-                  <span class="collapsible-header__span-datepicker-2 hidden collapsible-header__span">
+                  <span class="collapsible-header__span-datepicker-2 hidden elem-1 collapsible-header__span">
                     <i class="material-icons collapsible-header__icon">done</i>
                   </span>
                   Datepicker 2
@@ -151,7 +151,7 @@
                     <label for="datepicker-type2">Date</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="datepicker-2" data-value="2" data-element="1" class="btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="datepicker-2" data-value="2" data-element="1" class="datepicker-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
@@ -163,7 +163,7 @@
             <ul class="collapsible">
               <li class="input__type1 input__type1--state-chosen">
                 <div class="collapsible-header">
-                  <span class="collapsible-header__span-input-1 collapsible-header__span">
+                  <span class="collapsible-header__span-input-1 hidden elem-2 collapsible-header__span">
                     <i class="material-icons collapsible-header__icon">done</i>
                   </span>
                   Input 1
@@ -174,24 +174,24 @@
                     <label for="input-type1">Text</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="input-1" data-value="1" data-element="2" class="btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="input-1" data-value="1" data-element="2" class="input-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
               <li class="input__type2">
                 <div class="collapsible-header">
-                  <span class="collapsible-header__span-input-2 hidden collapsible-header__span">
+                  <span class="collapsible-header__span-input-2 hidden elem-2 collapsible-header__span">
                     <i class="material-icons collapsible-header__icon">done</i>
                   </span>
                   Input 2
                 </div>
                 <div class="collapsible-body">
                   <div class="input-field input-elem-group">
-                    <input type="text" name="input-type2" class="input-elem-group__input browser-default" placeholder="Type text here">
-                    <label for="input-type2" class="input-elem-group__label browser-default">Text</label>
+                    <input type="text" name="input-type2" class="input-elem-group__input input-test browser-default" placeholder="Type text here">
+                    <label for="input-type2" class="input-elem-group__label input-test browser-default">Text</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="input-2" data-value="2" data-element="2" class="btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="input-2" data-value="2" data-element="2" class="input-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
@@ -203,7 +203,7 @@
             <ul class="collapsible">
               <li class="select__type1 select__type1--state-chosen">
                 <div class="collapsible-header">
-                  <span class="collapsible-header__span-select-1 collapsible-header__span">
+                  <span class="collapsible-header__span-select-1 elem-3 hidden collapsible-header__span">
                     <i class="material-icons collapsible-header__icon">done</i>
                   </span>
                   Select 1
@@ -218,13 +218,13 @@
                     </select>
                   </div>
                   <div class="right-align">
-                    <button data-icon="select-1" data-value="1" data-element="3" class="btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="select-1" data-value="1" data-element="3" class="select-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
               <li class="select__type2">
                 <div class="collapsible-header">
-                  <span class="collapsible-header__span-select-2 hidden collapsible-header__span">
+                  <span class="collapsible-header__span-select-2 elem-3 hidden collapsible-header__span">
                     <i class="material-icons collapsible-header__icon">done</i>
                   </span>
                   Select 2
@@ -239,7 +239,7 @@
                     </select>
                   </div>
                   <div class="right-align">
-                    <button data-icon="select-2" data-value="2" data-element="3" class="btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="select-2" data-value="2" data-element="3" class="select-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
@@ -251,7 +251,7 @@
             <ul class="collapsible">
               <li class="timepicker__type1 select__type1--state-chosen">
                 <div class="collapsible-header">
-                  <span class="collapsible-header__span-timepicker-1 collapsible-header__span">
+                  <span class="collapsible-header__span-timepicker-1 hidden elem-4 collapsible-header__span">
                     <i class="material-icons collapsible-header__icon">done</i>
                   </span>
                   Timepicker 1
@@ -262,13 +262,13 @@
                     <label for="timepicker-type1">Time</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="timepicker-1" data-value="1" data-element="4" class="btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="timepicker-1" data-value="1" data-element="4" class=" timepicker-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
               <li class="timepicker__type2">
                 <div class="collapsible-header">
-                  <span class="collapsible-header__span-timepicker-2 hidden collapsible-header__span">
+                  <span class="collapsible-header__span-timepicker-2 elem-4 hidden collapsible-header__span">
                     <i class="material-icons collapsible-header__icon">done</i>
                   </span>
                   Timepicker 2
@@ -279,7 +279,7 @@
                     <label for="timepicker-type2">Time</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="timepicker-2" data-value="2" data-element="4" class="btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="timepicker-2" data-value="2" data-element="4" class="timepicker-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
@@ -310,34 +310,40 @@
         <form class="add-form__form col s12">
           <div class="row">
             <div class="input-field input-elem-group col s12">
-              <input id="title" type="text" class="input-elem-group__input validate">
+              <input id="title" name="title" type="text" class="input-elem-group__input validate">
               <label for="title" class="input-elem-group__label">Title</label>
             </div>
           </div>
-          <div class="row">
+          <div class="row datepicker-elem-group--type-material">
             <div class="input-field input-elem-group col s12">
-              <input id="date" type="text" class="input-elem-group__input datepicker-elem validate datepicker">
+              <input id="date" name="date_1" type="text" class="input-elem-group__input datepicker-elem validate datepicker">
+              <label for="date" class="input-elem-group__label">Date</label>
+            </div>
+          </div>
+          <div class="row datepicker-elem-group--type-browser-default hidden">
+            <div class="input-field input-elem-group col s12">
+              <input id="date" name="date" type="date_2" class="input-elem-group__input datepicker-elem validate">
               <label for="date" class="input-elem-group__label">Date</label>
             </div>
           </div>
           <div class="row timepicker-elem-group--type-material">
             <div class="input-field col s6">
-              <input id="time_from" type="text" class="validate timepicker">
+              <input id="time_from" name="time_start_1" type="text" class="validate timepicker">
               <label for="time_from">Start time</label>
             </div>
             <div class="input-field col s6">
-              <input id="time_to" type="text" class="validate timepicker">
+              <input id="time_to" name="time_end_1" type="text" class="validate timepicker">
               <label for="time_to">End time</label>
             </div>
           </div>
           <div class="timepicker-elem-group--type-browser-default hidden">
             <div class="row">
               <div class="input-field input-elem-group col s6">
-                <input id="time_from" type="time" class="input-elem-group__input validate">
+                <input id="time_from" name="time_start_2" type="time" class="input-elem-group__input validate">
                 <label for="time_from" class="input-elem-group__label">Start time</label>
               </div>
               <div class="input-field input-elem-group col s6">
-                <input id="time_to" type="time" class="input-elem-group__input validate">
+                <input id="time_to" name="time_end_2" type="time" class="input-elem-group__input validate">
                 <label for="time_to" class="input-elem-group__label">End time</label>
               </div>
             </div>
@@ -358,25 +364,28 @@
           </div>
           <div class="row">
             <div class="input-field input-elem-group col s12">
-              <input id="location" type="text" class="validate input-elem-group__input">
+              <input id="location" name="location" type="text" class="validate input-elem-group__input">
               <label for="location" class="input-elem-group__label">Location</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <select class="select-elem">
+              <select name="category" class="select-elem">
                 <option value="" disabled selected>Choose your category</option>
-                <option value="1">Diabetes</option>
-                <option value="2">Exercise</option>
-                <option value="3">Family</option>
-                <option value="3">Health</option>
-                <option value="3">Home</option>
-                <option value="3">Personal</option>
-                <option value="3">Pets</option>
-                <option value="3">School</option>
-                <option value="3">Shopping</option>
-                <option value="3">Social</option>
-                <option value="3">Other</option>
+                <option value="Diabetes">Diabetes</option>
+                <option value="Exercise">Exercise</option>
+                <option value="Family">Family</option>
+                <option value="Food">Food</option>
+                <option value="Health">Health</option>
+                <option value="Home">Home</option>
+                <option value="Personal">Personal</option>
+                <option value="Pets">Pets</option>
+                <option value="School">School</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Social">Social</option>
+                <option value="Other">Other</option>
+                <option value="Travel">Travel</option>
+                <option value="Work">Work</option>
               </select>
               <label class="select-elem__label">Category</label>
             </div>
