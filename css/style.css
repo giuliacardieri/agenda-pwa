@@ -49,7 +49,7 @@
 .materialize-red.darken-3 {
   background-color: #a21318 !important; }
 
-.materialize-red-text.text-darken-3 {
+.materialize-red-text.text-darken-3, .materialize-red-text.material-icons.input-field__speech-icon {
   color: #a21318 !important; }
 
 .materialize-red.darken-4 {
@@ -109,7 +109,7 @@
 .red.darken-3 {
   background-color: #C62828 !important; }
 
-.red-text.text-darken-3 {
+.red-text.text-darken-3, .red-text.material-icons.input-field__speech-icon {
   color: #C62828 !important; }
 
 .red.darken-4 {
@@ -193,7 +193,7 @@
 .pink.darken-3 {
   background-color: #ad1457 !important; }
 
-.pink-text.text-darken-3 {
+.pink-text.text-darken-3, .pink-text.material-icons.input-field__speech-icon {
   color: #ad1457 !important; }
 
 .pink.darken-4 {
@@ -277,7 +277,7 @@
 .purple.darken-3 {
   background-color: #6a1b9a !important; }
 
-.purple-text.text-darken-3 {
+.purple-text.text-darken-3, .purple-text.material-icons.input-field__speech-icon {
   color: #6a1b9a !important; }
 
 .purple.darken-4 {
@@ -361,7 +361,7 @@
 .deep-purple.darken-3 {
   background-color: #4527a0 !important; }
 
-.deep-purple-text.text-darken-3 {
+.deep-purple-text.text-darken-3, .deep-purple-text.material-icons.input-field__speech-icon {
   color: #4527a0 !important; }
 
 .deep-purple.darken-4 {
@@ -445,7 +445,7 @@
 .indigo.darken-3 {
   background-color: #283593 !important; }
 
-.indigo-text.text-darken-3, nav ul a.text-darken-3.li__a.li__a--state-active, .add-form__header ul a.text-darken-3.li__a.li__a--state-active, .header__app-bar ul a.text-darken-3.li__a.li__a--state-active {
+.indigo-text.text-darken-3, nav ul a.text-darken-3.li__a.li__a--state-active, .add-form__header ul a.text-darken-3.li__a.li__a--state-active, .header__app-bar ul a.text-darken-3.li__a.li__a--state-active, nav ul a.li__a.li__a--state-active.material-icons.input-field__speech-icon, .add-form__header ul a.li__a.li__a--state-active.material-icons.input-field__speech-icon, .header__app-bar ul a.li__a.li__a--state-active.material-icons.input-field__speech-icon, .indigo-text.material-icons.input-field__speech-icon {
   color: #283593 !important; }
 
 .indigo.darken-4 {
@@ -529,7 +529,7 @@
 .blue.darken-3 {
   background-color: #1565C0 !important; }
 
-.blue-text.text-darken-3 {
+.blue-text.text-darken-3, .blue-text.material-icons.input-field__speech-icon {
   color: #1565C0 !important; }
 
 .blue.darken-4 {
@@ -613,7 +613,7 @@
 .light-blue.darken-3 {
   background-color: #0277bd !important; }
 
-.light-blue-text.text-darken-3 {
+.light-blue-text.text-darken-3, .light-blue-text.material-icons.input-field__speech-icon {
   color: #0277bd !important; }
 
 .light-blue.darken-4 {
@@ -697,7 +697,7 @@
 .cyan.darken-3 {
   background-color: #00838f !important; }
 
-.cyan-text.text-darken-3 {
+.cyan-text.text-darken-3, .cyan-text.material-icons.input-field__speech-icon {
   color: #00838f !important; }
 
 .cyan.darken-4 {
@@ -781,7 +781,7 @@
 .teal.darken-3 {
   background-color: #00695c !important; }
 
-.teal-text.text-darken-3 {
+.teal-text.text-darken-3, .teal-text.material-icons.input-field__speech-icon {
   color: #00695c !important; }
 
 .teal.darken-4 {
@@ -865,7 +865,7 @@
 .green.darken-3 {
   background-color: #2E7D32 !important; }
 
-.green-text.text-darken-3 {
+.green-text.text-darken-3, .green-text.material-icons.input-field__speech-icon {
   color: #2E7D32 !important; }
 
 .green.darken-4 {
@@ -949,7 +949,7 @@
 .light-green.darken-3 {
   background-color: #558b2f !important; }
 
-.light-green-text.text-darken-3 {
+.light-green-text.text-darken-3, .light-green-text.material-icons.input-field__speech-icon {
   color: #558b2f !important; }
 
 .light-green.darken-4 {
@@ -1033,7 +1033,7 @@
 .lime.darken-3 {
   background-color: #9e9d24 !important; }
 
-.lime-text.text-darken-3 {
+.lime-text.text-darken-3, .lime-text.material-icons.input-field__speech-icon {
   color: #9e9d24 !important; }
 
 .lime.darken-4 {
@@ -1117,7 +1117,7 @@
 .yellow.darken-3 {
   background-color: #f9a825 !important; }
 
-.yellow-text.text-darken-3 {
+.yellow-text.text-darken-3, .yellow-text.material-icons.input-field__speech-icon {
   color: #f9a825 !important; }
 
 .yellow.darken-4 {
@@ -1201,7 +1201,7 @@
 .amber.darken-3 {
   background-color: #ff8f00 !important; }
 
-.amber-text.text-darken-3 {
+.amber-text.text-darken-3, .amber-text.material-icons.input-field__speech-icon {
   color: #ff8f00 !important; }
 
 .amber.darken-4 {
@@ -1285,7 +1285,7 @@
 .orange.darken-3 {
   background-color: #ef6c00 !important; }
 
-.orange-text.text-darken-3 {
+.orange-text.text-darken-3, .orange-text.material-icons.input-field__speech-icon {
   color: #ef6c00 !important; }
 
 .orange.darken-4 {
@@ -1369,7 +1369,7 @@
 .deep-orange.darken-3 {
   background-color: #d84315 !important; }
 
-.deep-orange-text.text-darken-3 {
+.deep-orange-text.text-darken-3, .deep-orange-text.material-icons.input-field__speech-icon {
   color: #d84315 !important; }
 
 .deep-orange.darken-4 {
@@ -1453,7 +1453,7 @@
 .brown.darken-3 {
   background-color: #4e342e !important; }
 
-.brown-text.text-darken-3 {
+.brown-text.text-darken-3, .brown-text.material-icons.input-field__speech-icon {
   color: #4e342e !important; }
 
 .brown.darken-4 {
@@ -1513,7 +1513,7 @@
 .blue-grey.darken-3 {
   background-color: #37474f !important; }
 
-.blue-grey-text.text-darken-3 {
+.blue-grey-text.text-darken-3, .blue-grey-text.material-icons.input-field__speech-icon {
   color: #37474f !important; }
 
 .blue-grey.darken-4 {
@@ -1525,61 +1525,61 @@
 .grey, body {
   background-color: #9e9e9e !important; }
 
-.grey-text, nav ul a.li__a, .add-form__header ul a.li__a, .header__app-bar ul a.li__a, .app-bar-secondary__p {
+.grey-text, nav ul a.li__a, .add-form__header ul a.li__a, .header__app-bar ul a.li__a, .material-icons.input-field__speech-icon, .app-bar-secondary__p {
   color: #9e9e9e !important; }
 
 .grey.lighten-5, body {
   background-color: #fafafa !important; }
 
-.grey-text.text-lighten-5, nav ul a.text-lighten-5.li__a, .add-form__header ul a.text-lighten-5.li__a, .header__app-bar ul a.text-lighten-5.li__a, .text-lighten-5.app-bar-secondary__p {
+.grey-text.text-lighten-5, nav ul a.text-lighten-5.li__a, .add-form__header ul a.text-lighten-5.li__a, .header__app-bar ul a.text-lighten-5.li__a, .text-lighten-5.material-icons.input-field__speech-icon, .text-lighten-5.app-bar-secondary__p {
   color: #fafafa !important; }
 
 .grey.lighten-4, body.lighten-4 {
   background-color: #f5f5f5 !important; }
 
-.grey-text.text-lighten-4, nav ul a.text-lighten-4.li__a, .add-form__header ul a.text-lighten-4.li__a, .header__app-bar ul a.text-lighten-4.li__a, .text-lighten-4.app-bar-secondary__p {
+.grey-text.text-lighten-4, nav ul a.text-lighten-4.li__a, .add-form__header ul a.text-lighten-4.li__a, .header__app-bar ul a.text-lighten-4.li__a, .text-lighten-4.material-icons.input-field__speech-icon, .text-lighten-4.app-bar-secondary__p {
   color: #f5f5f5 !important; }
 
 .grey.lighten-3, body.lighten-3 {
   background-color: #eeeeee !important; }
 
-.grey-text.text-lighten-3, nav ul a.text-lighten-3.li__a, .add-form__header ul a.text-lighten-3.li__a, .header__app-bar ul a.text-lighten-3.li__a, .text-lighten-3.app-bar-secondary__p {
+.grey-text.text-lighten-3, nav ul a.text-lighten-3.li__a, .add-form__header ul a.text-lighten-3.li__a, .header__app-bar ul a.text-lighten-3.li__a, .text-lighten-3.material-icons.input-field__speech-icon, .text-lighten-3.app-bar-secondary__p {
   color: #eeeeee !important; }
 
 .grey.lighten-2, body.lighten-2 {
   background-color: #e0e0e0 !important; }
 
-.grey-text.text-lighten-2, nav ul a.text-lighten-2.li__a, .add-form__header ul a.text-lighten-2.li__a, .header__app-bar ul a.text-lighten-2.li__a, .text-lighten-2.app-bar-secondary__p {
+.grey-text.text-lighten-2, nav ul a.text-lighten-2.li__a, .add-form__header ul a.text-lighten-2.li__a, .header__app-bar ul a.text-lighten-2.li__a, .text-lighten-2.material-icons.input-field__speech-icon, .text-lighten-2.app-bar-secondary__p {
   color: #e0e0e0 !important; }
 
 .grey.lighten-1, body.lighten-1 {
   background-color: #bdbdbd !important; }
 
-.grey-text.text-lighten-1, nav ul a.text-lighten-1.li__a, .add-form__header ul a.text-lighten-1.li__a, .header__app-bar ul a.text-lighten-1.li__a, .text-lighten-1.app-bar-secondary__p {
+.grey-text.text-lighten-1, nav ul a.text-lighten-1.li__a, .add-form__header ul a.text-lighten-1.li__a, .header__app-bar ul a.text-lighten-1.li__a, .text-lighten-1.material-icons.input-field__speech-icon, .text-lighten-1.app-bar-secondary__p {
   color: #bdbdbd !important; }
 
 .grey.darken-1, body.darken-1 {
   background-color: #757575 !important; }
 
-.grey-text.text-darken-1, nav ul a.text-darken-1.li__a, .add-form__header ul a.text-darken-1.li__a, .header__app-bar ul a.text-darken-1.li__a, nav ul a.li__a.app-bar-secondary__p, .add-form__header ul a.li__a.app-bar-secondary__p, .header__app-bar ul a.li__a.app-bar-secondary__p, .app-bar-secondary__p {
+.grey-text.text-darken-1, nav ul a.text-darken-1.li__a, .add-form__header ul a.text-darken-1.li__a, .header__app-bar ul a.text-darken-1.li__a, nav ul a.li__a.app-bar-secondary__p, .add-form__header ul a.li__a.app-bar-secondary__p, .header__app-bar ul a.li__a.app-bar-secondary__p, .text-darken-1.material-icons.input-field__speech-icon, .material-icons.input-field__speech-icon.app-bar-secondary__p, .app-bar-secondary__p {
   color: #757575 !important; }
 
 .grey.darken-2, body.darken-2 {
   background-color: #616161 !important; }
 
-.grey-text.text-darken-2, nav ul a.li__a, .add-form__header ul a.li__a, .header__app-bar ul a.li__a, .text-darken-2.app-bar-secondary__p {
+.grey-text.text-darken-2, nav ul a.li__a, .add-form__header ul a.li__a, .header__app-bar ul a.li__a, .text-darken-2.material-icons.input-field__speech-icon, nav ul a.material-icons.input-field__speech-icon.li__a, .text-darken-2.app-bar-secondary__p {
   color: #616161 !important; }
 
 .grey.darken-3, body.darken-3 {
   background-color: #424242 !important; }
 
-.grey-text.text-darken-3, nav ul a.text-darken-3.li__a, .add-form__header ul a.text-darken-3.li__a, .header__app-bar ul a.text-darken-3.li__a, .text-darken-3.app-bar-secondary__p {
+.grey-text.text-darken-3, nav ul a.text-darken-3.li__a, .add-form__header ul a.text-darken-3.li__a, .header__app-bar ul a.text-darken-3.li__a, .material-icons.input-field__speech-icon, .text-darken-3.app-bar-secondary__p {
   color: #424242 !important; }
 
 .grey.darken-4, body.darken-4 {
   background-color: #212121 !important; }
 
-.grey-text.text-darken-4, nav ul a.text-darken-4.li__a, .add-form__header ul a.text-darken-4.li__a, .header__app-bar ul a.text-darken-4.li__a, .text-darken-4.app-bar-secondary__p {
+.grey-text.text-darken-4, nav ul a.text-darken-4.li__a, .add-form__header ul a.text-darken-4.li__a, .header__app-bar ul a.text-darken-4.li__a, .text-darken-4.material-icons.input-field__speech-icon, .text-darken-4.app-bar-secondary__p {
   color: #212121 !important; }
 
 .black {
@@ -6470,7 +6470,7 @@ nav ul a.li__a, .add-form__header ul a.li__a, .header__app-bar ul a.li__a {
 .body__add-form-section {
   background-color: #fafafa;
   left: 100vw;
-  position: fixed;
+  position: absolute;
   top: 100vh;
   width: 100vw;
   z-index: 1; }
@@ -6485,6 +6485,11 @@ nav ul a.li__a, .add-form__header ul a.li__a, .header__app-bar ul a.li__a {
 
 .add-form__form {
   margin-top: 24px; }
+
+.material-icons.input-field__speech-icon {
+  bottom: 10px;
+  position: absolute;
+  right: 10px; }
 
 /* general */
 .body__main {

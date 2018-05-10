@@ -286,6 +286,116 @@
             </ul>
           </div>
         </div>
+        <div id="speech" class="tabs__div col s12 hidden">
+          <div class="row">
+            <ul class="collapsible">
+              <li class="speech__type1 speech__type1--state-chosen">
+                <div class="collapsible-header">
+                  <span class="collapsible-header__span-speech-1 hidden elem-5 collapsible-header__span">
+                    <i class="material-icons collapsible-header__icon">done</i>
+                  </span>
+                  Deny speech recognition
+                </div>
+                <div class="collapsible-body">
+                  <div class="input-field">
+                    <input type="text" name="speech-type1">
+                    <i class="speech-elem speech-test hidden material-icons input-field__speech-icon">mic</i>
+                    <label for="speech-type1">Text</label>
+                  </div>
+                  <div class="right-align">
+                    <button data-icon="speech-1" data-value="1" data-element="5" class="speech-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                  </div>
+                </div>
+              </li>
+              <li class="speech__type2">
+                <div class="collapsible-header">
+                  <span class="collapsible-header__span-speech-2 hidden elem-5 collapsible-header__span">
+                    <i class="material-icons collapsible-header__icon">done</i>
+                  </span>
+                  Allow speech recognition
+                </div>
+                <div class="collapsible-body">
+                  <div class="input-field input-elem-group">
+                    <input type="text" name="speech-type2" class="input-elem-group__input input-test">
+                    <i class="speech-elem speech-test material-icons input-field__speech-icon">mic</i>
+                    <label for="speech-type2" class="input-elem-group__label input-test">Text</label>
+                  </div>
+                  <div class="right-align">
+                    <button data-icon="speech-2" data-value="2" data-element="5" class="speech-2 btn btn-choose waves-effect">Choose</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="events" class="tabs__div col s12 hidden">
+          <div class="row">
+            <ul class="collapsible">
+              <li class="events__type1 events__type1--state-chosen">
+                <div class="collapsible-header">
+                  <span class="collapsible-header__span-events-1 hidden elem-6 collapsible-header__span">
+                    <i class="material-icons collapsible-header__icon">done</i>
+                  </span>
+                  Display events on card format
+                </div>
+                <div class="collapsible-body">
+                  cards
+                  <div class="right-align">
+                    <button data-icon="events-1" data-value="1" data-element="6" class="events-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                  </div>
+                </div>
+              </li>
+              <li class="speech__type2">
+                <div class="collapsible-header">
+                  <span class="collapsible-header__span-events-2 hidden elem-6 collapsible-header__span">
+                    <i class="material-icons collapsible-header__icon">done</i>
+                  </span>
+                  Display events on list format
+                </div>
+                <div class="collapsible-body">
+                  list
+                  <div class="right-align">
+                    <button data-icon="events-2" data-value="2" data-element="6" class="events-2 btn btn-choose waves-effect">Choose</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="images" class="tabs__div col s12 hidden">
+          <div class="row">
+            <ul class="collapsible">
+              <li class="images__type1 images__type1--state-chosen">
+                <div class="collapsible-header">
+                  <span class="collapsible-header__span-images-1 hidden elem-7 collapsible-header__span">
+                    <i class="material-icons collapsible-header__icon">done</i>
+                  </span>
+                  Show event image
+                </div>
+                <div class="collapsible-body">
+                  show!
+                  <div class="right-align">
+                    <button data-icon="images-1" data-value="1" data-element="7" class="images-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                  </div>
+                </div>
+              </li>
+              <li class="speech__type2">
+                <div class="collapsible-header">
+                  <span class="collapsible-header__span-images-2 hidden elem-7 collapsible-header__span">
+                    <i class="material-icons collapsible-header__icon">done</i>
+                  </span>
+                  Hide event image
+                </div>
+                <div class="collapsible-body">
+                  hide
+                  <div class="right-align">
+                    <button data-icon="images-2" data-value="2" data-element="7" class="images-2 btn btn-choose waves-effect">Choose</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </script>
     <script id="pastevents-template" type="text/x-handlebars-template">
@@ -311,6 +421,7 @@
           <div class="row">
             <div class="input-field input-elem-group col s12">
               <input id="title" name="title" type="text" class="input-elem-group__input validate">
+              <i class="speech-elem hidden material-icons input-field__speech-icon">mic</i>
               <label for="title" class="input-elem-group__label">Title</label>
             </div>
           </div>
@@ -327,13 +438,13 @@
             </div>
           </div>
           <div class="row timepicker-elem-group--type-material">
-            <div class="input-field col s6">
-              <input id="time_from" name="time_start_1" type="text" class="validate timepicker">
-              <label for="time_from">Start time</label>
+            <div class="input-field input-elem-group col s6">
+              <input id="time_from" name="time_start_1" type="text" class="input-elem-group__input validate timepicker">
+              <label for="time_from" class="input-elem-group__label">Start time</label>
             </div>
-            <div class="input-field col s6">
-              <input id="time_to" name="time_end_1" type="text" class="validate timepicker">
-              <label for="time_to">End time</label>
+            <div class="input-field input-elem-group col s6">
+              <input id="time_to" name="time_end_1" type="text" class="input-elem-group__input validate timepicker">
+              <label for="time_to" class="input-elem-group__label">End time</label>
             </div>
           </div>
           <div class="timepicker-elem-group--type-browser-default hidden">
@@ -365,6 +476,7 @@
           <div class="row">
             <div class="input-field input-elem-group col s12">
               <input id="location" name="location" type="text" class="validate input-elem-group__input">
+              <i class="speech-elem hidden material-icons input-field__speech-icon">mic</i>
               <label for="location" class="input-elem-group__label">Location</label>
             </div>
           </div>
@@ -411,9 +523,14 @@
         <ul class="tabs">
           <li class="tab col s3"><a class="active" href="#checkbox">Checkbox</a></li>
           <li class="tab col s3"><a href="#datepicker">Datepicker</a></li>
+          <li class="tab col s3"><a href="#events">Events display</a></li>
+          <li class="tab col s3"><a href="#images">Images</a></li>
           <li class="tab col s3"><a href="#input">Input</a></li>
           <li class="tab col s3"><a href="#select">Select</a></li>
+          <li class="tab col s3"><a href="#speech">Speech</a></li>
+          <li class="tab col s3"><a href="#swipe">Swipe</a></li>
           <li class="tab col s3"><a href="#timepicker">Timepicker</a></li>
+          <li class="tab col s3"><a href="#voice">Voice</a></li>
         </ul>
       </div>
     </header>

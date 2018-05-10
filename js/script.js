@@ -7,7 +7,7 @@ var getUser = function getUser() {
 
 var setUser = function setUser(user_new) {
   if (user_new)
-	 localStorage.setItem('user', user_new);
+	  localStorage.setItem('user', user_new);
   else {
     localStorage.setItem('user', JSON.stringify([
       { 'id': 0, 'name': 'checkbox', 'value': 1 },
@@ -15,8 +15,11 @@ var setUser = function setUser(user_new) {
       { 'id': 2, 'name': 'input', 'value': 1 },
       { 'id': 3, 'name': 'select', 'value': 1 },
       { 'id': 4, 'name': 'timepicker', 'value': 1 },
-      { 'id': 5, 'name': 'events_style', 'value': 1 },
-      { 'id': 6, 'name': 'images_card', 'value': 1 },
+      { 'id': 5, 'name': 'speech', 'value': 1 },
+      { 'id': 6, 'name': 'events', 'value': 1 },
+      { 'id': 7, 'name': 'images', 'value': 1 },
+      { 'id': 8, 'name': 'voice', 'value': 1 },
+      { 'id': 9, 'name': 'speech', 'value': 1 },
     ]));
   }
   userPreferencesDesign();
@@ -71,7 +74,41 @@ var userPreferencesDesign = function userPreferencesDesign() {
     $('.timepicker-elem-group--type-browser-default').addClass('hidden');
     $('.timepicker-elem-group--type-material').removeClass('hidden');
   }
+
+  if (user[5].value == 2) {
+    $('.speech-elem:not(.speech-test)').removeClass('hidden');
+  } else if (user[5].value == 1) {
+    $('.speech-elem:not(.speech-test)').addClass('hidden');
+  }
 }
+
+let startSpeech = () => {
+  var speak = new webkitSpeechRecognition();
+
+  speak.lang = 'en-us';
+
+  speak.start();
+
+  speak.onresult = function(event) {
+    var text = ''
+    , i
+    , name;
+
+    for(i = event.resultIndex; i < event.results.length; ++i) {
+      text += event.results[i][0].transcript;
+    }
+   //console.log(text); // showing what he heard
+    
+    name = text.toLowerCase();
+    postText(name);
+  };
+};
+
+let postText = (text) => {
+  console.log('vc falou ' + text);
+  $('.speech-elem.current-elem').siblings('input').val(text);
+  M.updateTextFields();
+};
 
 var updateChosenElements = function updateChosenElements() {  
   var user = getUser();
@@ -282,6 +319,8 @@ $(function(){
     e.preventDefault();
     console.log('submitted!');
     addFormData($(this).serializeArray());
+    $('.body__add-form-section').addClass('hidden');
+    $('main').removeClass('hidden');
     return false;
   });
 
@@ -308,6 +347,13 @@ $(function(){
       left: '0vw',
       easing: 'easein'
     }, 225);
+  });
+
+  $('.body__main, .body__add-form-section').on('click', '.speech-elem', function(e) {
+    e.preventDefault();
+    startSpeech();
+    $('.speech-elem').removeClass('current-elem');
+    $(this).addClass('current-elem');
   });
 
   $('main').on('click', '.btn-choose', function() {

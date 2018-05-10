@@ -1,7 +1,7 @@
 var db = [
 	{
   	"title": "Take mila to vet",
-    "date": "2018-04-14",
+    "date": "2018-05-10",
   	"time_start": "17:00",
   	"time_end": "18:00",
   	"location": "Ishizuka Vet",
@@ -11,17 +11,17 @@ var db = [
 	},
   {
     "title": "Clean apartment",
-    "date": "2018-04-12",
+    "date": "2018-05-09",
     "time_start": "10:00",
     "time_end": "12:00",
     "location": "My Apartment",
-    "icon": "fitness_center",
-    "category": "personal",
+    "icon": "face",
+    "category": "Personal",
     "completed": true,
   },
 	{
   	"title": "Go to the gym",
-    "date": "2018-04-14",
+    "date": "2018-05-09",
   	"time_start": "15:00",
   	"time_end": "16:00",
   	"location": "Clube de Campo",

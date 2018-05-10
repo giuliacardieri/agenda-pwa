@@ -22,6 +22,8 @@ var filesToCache = [
   'js/jquery.mobile-events.min.js',
   'js/app.js',
   'js/script.js',
+  'js/db.json',
+  'images/personal.jpg',
   'images/pets.jpg',
   'images/exercise.jpg',
 ];
