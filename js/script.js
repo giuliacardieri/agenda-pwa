@@ -10,16 +10,16 @@ var setUser = function setUser(user_new) {
 	  localStorage.setItem('user', user_new);
   else {
     localStorage.setItem('user', JSON.stringify([
-      { 'id': 0, 'name': 'checkbox', 'value': 1 },
-      { 'id': 1, 'name': 'datepicker', 'value': 1 },
-      { 'id': 2, 'name': 'input', 'value': 1 },
-      { 'id': 3, 'name': 'select', 'value': 1 },
-      { 'id': 4, 'name': 'timepicker', 'value': 1 },
-      { 'id': 5, 'name': 'speech', 'value': 1 },
-      { 'id': 6, 'name': 'events', 'value': 1 },
-      { 'id': 7, 'name': 'images', 'value': 1 },
-      { 'id': 8, 'name': 'voice', 'value': 1 },
-      { 'id': 9, 'name': 'speech', 'value': 1 },
+      { 'id': 0, 'type': 0,'name': 'checkbox', 'value': 1 },
+      { 'id': 1, 'type': 0, 'name': 'datepicker', 'value': 1 },
+      { 'id': 2, 'type': 0, 'name': 'input', 'value': 1 },
+      { 'id': 3, 'type': 0, 'name': 'select', 'value': 1 },
+      { 'id': 4, 'type': 0, 'name': 'timepicker', 'value': 1 },
+      { 'id': 5, 'type': 1, 'name': 'speech', 'value': 1 },
+      { 'id': 6, 'type': 2, 'name': 'events', 'value': 1 },
+      { 'id': 7, 'type': 2, 'name': 'images', 'value': 1 },
+      { 'id': 8, 'type': 1, 'name': 'voice', 'value': 1 },
+      { 'id': 9, 'type': 1, 'name': 'speech', 'value': 1 },
     ]));
   }
   userPreferencesDesign();
@@ -82,7 +82,7 @@ var userPreferencesDesign = function userPreferencesDesign() {
   }
 }
 
-let startSpeech = () => {
+var startSpeech = function startSpeech() {
   var speak = new webkitSpeechRecognition();
 
   speak.lang = 'en-us';
@@ -104,8 +104,8 @@ let startSpeech = () => {
   };
 };
 
-let postText = (text) => {
-  console.log('vc falou ' + text);
+var postText =  function postText(text) {
+  //console.log('vc falou ' + text);
   $('.speech-elem.current-elem').siblings('input').val(text);
   M.updateTextFields();
 };
@@ -124,7 +124,7 @@ var loadDBTemplate = function loadDBTemplate(source) {
   template = Handlebars.compile(source);
   html = template(sortDB(filtered_db, 'time_start'));
 
-  $('.header__tabs').addClass('header__tabs--state-hidden');
+  $('.header__tabs').addClass('header__tabs--hidden');
   $('main').html(html);
   initializeMaterializeComponents();
 }
@@ -133,12 +133,25 @@ var loadUserPrefsTemplate = function loadUserPrefsTemplate(source) {
   var template, html;
   
   template = Handlebars.compile(source);
-  html = template(userprefs);
+  html = template(getUser());
 
-  $('.header__tabs').removeClass('header__tabs--state-hidden');
+  $('main').html(html);
+  $('.header__tabs').addClass('header__tabs--hidden');
+
+  initializeMaterializeComponents();
+  updateChosenElements();
+};
+
+var loadMyDesignOptions = function loadMyDesignOptions(type) {
+  var template, html;
+  
+  template = Handlebars.compile($(`#mydesign-options-${type}-template`).html());
+  html = template(getUser());
+
+  $(`.header__tabs.header__tabs--${type}`).removeClass('header__tabs--hidden');
   $('main').html(html);
 
-  rememberTabsContent();
+  rememberTabsContent(type);
   initializeMaterializeComponents();
   updateChosenElements();
 }
@@ -190,8 +203,8 @@ var addFormData = function addFormData(data) {
 }
 
 /* my design page tab menu functions */
-var rememberTabsContent = function rememberTabsContent() {
-  var id = $('.header__tabs a.active').attr('href');
+var rememberTabsContent = function rememberTabsContent(id) {
+  var id = $(`.header__tabs--${id} a.active`).attr('href');
   $(id).removeClass('hidden');
 }
 
@@ -211,19 +224,19 @@ var initializeMaterializeComponents = function initializeMaterializeComponents()
 var findCurrentNav = function findCurrentNav(id) {
   switch (id) {
     case 'home': loadDBTemplate($('#home-template').html()); break;
-    case 'mydesign': loadUserPrefsTemplate($('#mydesign-template').html(), userprefs); break;
-    case 'pastevents': loadDBTemplate($('#pastevents-template').html(), db); break;
+    case 'mydesign': loadUserPrefsTemplate($('#mydesign-template').html()); break;
+    case 'pastevents': loadDBTemplate($('#pastevents-template').html()); break;
   }
 }
 
 /* fake db functions*/
 /* a fake db was created in order to save all user data on the device, allowing more privacy */
 var filterJSONByDate = function filterJSONByDate(array) {
-  var today = (new Date()).toISOString().substring(0, 10);
+  var today = moment().format('YYYY-MM-DD');
   var new_db = [];
 
   for (var i = 0; i<Object.keys(array).length; i++) {
-    if (array[i].date == today)
+    if (array[i].date === today)
       new_db.push(array[i])
   }
 
@@ -365,5 +378,10 @@ $(function(){
     var icon_elem = $(this).attr('data-icon');
     $('.collapsible-header__span.elem-' + $(this).attr('data-element')).addClass('hidden');
     $('.collapsible-header__span-' + icon_elem).removeClass('hidden');
+  });
+
+  $('main').on('click', '.collapsible-body__btn--choose', function() {
+    $('.header__tabs').addClass('header__tabs--hidden');
+    loadMyDesignOptions($(this).data('type'));
   });
 });

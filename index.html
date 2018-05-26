@@ -14,6 +14,7 @@
   <script type="text/javascript" src="js/db.json"></script>
   <script type="text/javascript" src="js/userprefs.json"></script>
   <script type="text/javascript" src="js/handlebars-v4.0.11.js"></script>
+  <script type="text/javascript" src="js/moment.js"></script>
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/jquery.mobile-events.min.js"></script>
@@ -64,8 +65,8 @@
                   </p>
                 </div>
                 <div class="card-action">
-                  <a href="#" class="card-action__btn--completed">Mark as completed</a>
-                  <a href="#" class="card-action__btn--cancel">Delete</a>
+                  <a href="#" class="card-action__btn--completed">Done</a>
+                  <a href="#" class="card-action__btn--cancel">Cancel</a>
                 </div>
               </div>
             </div>
@@ -75,6 +76,38 @@
       <a href="#" class="btn-floating main__btn--add btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
     </script>
     <script id="mydesign-template" type="text/x-handlebars-template">
+      <div class="row">
+        <div class="template__mydesign-wrapper col s12">
+          <p class="mydesign-wrapper__p">In this section you can choose the appearance and behavior of interface elements, modalities and display format in this application.</p>
+          <div class="row">
+            <ul class="collapsible my-design__collapsible">
+              <li>
+                <div class="collapsible-header">Interface elements</div>
+                <div class="collapsible-body">
+                  <p class="collapsible-body__p">Interface elements consist on checkboxes, calendar, input fields, select and timepicker</p>
+                  <button class="btn waves-effect collapsible-body__btn collapsible-body__btn--choose" data-type="0">Change interface elements</button>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header">Modalities</div>
+                <div class="collapsible-body">
+                  <p class="collapsible-body__p">Modalities such as swipe movement, voice and speech might be turned off or on.</p>
+                  <button class="btn waves-effect collapsible-body__btn collapsible-body__btn--choose" data-type="1">Change modalities use</button>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header">Display format</div>
+                <div class="collapsible-body">
+                  <p class="collapsible-body__p">The display form of images and events might be altered.</p>
+                  <button class="btn waves-effect collapsible-body__btn collapsible-body__btn--choose" data-type="2">Change display format</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script id="mydesign-options-0-template" type="text/x-handlebars-template">
       <div class="row">
         <div id="checkbox" class="tabs__div col s12 hidden">
           <div class="row">
@@ -286,6 +319,10 @@
             </ul>
           </div>
         </div>
+      </div>
+    </script>
+    <script id="mydesign-options-1-template" type="text/x-handlebars-template">
+      <div class="row">
         <div id="speech" class="tabs__div col s12 hidden">
           <div class="row">
             <ul class="collapsible">
@@ -328,6 +365,44 @@
             </ul>
           </div>
         </div>
+        <div id="voice" class="tabs__div col s12 hidden">
+          <div class="row">
+            <ul class="collapsible">
+              <li class="voice__type1 voice__type1--state-chosen">
+                <div class="collapsible-header">
+                  <span class="collapsible-header__span-voice-1 hidden elem-8 collapsible-header__span">
+                    <i class="material-icons collapsible-header__icon">done</i>
+                  </span>
+                  Block voice synthesis
+                </div>
+                <div class="collapsible-body">
+                  block
+                  <div class="right-align">
+                    <button data-icon="voice-1" data-value="1" data-element="8" class="voice-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                  </div>
+                </div>
+              </li>
+              <li class="speech__type2">
+                <div class="collapsible-header">
+                  <span class="collapsible-header__span-voice-2 hidden elem-8 collapsible-header__span">
+                    <i class="material-icons collapsible-header__icon">done</i>
+                  </span>
+                  Allow voice syntheses
+                </div>
+                <div class="collapsible-body">
+                  allow
+                  <div class="right-align">
+                    <button data-icon="voice-2" data-value="2" data-element="8" class="voice-2 btn btn-choose waves-effect">Choose</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script id="mydesign-options-2-template" type="text/x-handlebars-template">
+      <div class="row">
         <div id="events" class="tabs__div col s12 hidden">
           <div class="row">
             <ul class="collapsible">
@@ -519,18 +594,26 @@
           <a href="#" class="nav-wrapper__a nav-wrapper__a--type-main">Agenda App</a>
         </div>
       </div>       
-      <div class="header__tabs header__tabs--state-hidden col s12">
+      <div class="header__tabs header__tabs--0 header__tabs--hidden col s12">
         <ul class="tabs">
           <li class="tab col s3"><a class="active" href="#checkbox">Checkbox</a></li>
           <li class="tab col s3"><a href="#datepicker">Datepicker</a></li>
-          <li class="tab col s3"><a href="#events">Events display</a></li>
-          <li class="tab col s3"><a href="#images">Images</a></li>
           <li class="tab col s3"><a href="#input">Input</a></li>
           <li class="tab col s3"><a href="#select">Select</a></li>
+          <li class="tab col s3"><a href="#timepicker">Timepicker</a></li>
+        </ul>
+      </div>     
+      <div class="header__tabs header__tabs--1 header__tabs--hidden col s12">
+        <ul class="tabs">
           <li class="tab col s3"><a href="#speech">Speech</a></li>
           <li class="tab col s3"><a href="#swipe">Swipe</a></li>
-          <li class="tab col s3"><a href="#timepicker">Timepicker</a></li>
           <li class="tab col s3"><a href="#voice">Voice</a></li>
+        </ul>
+      </div>     
+      <div class="header__tabs header__tabs--2 header__tabs--hidden col s12">
+        <ul class="tabs">
+          <li class="tab col s3"><a href="#events">Events display</a></li>
+          <li class="tab col s3"><a href="#images">Images</a></li>
         </ul>
       </div>
     </header>

@@ -6545,8 +6545,11 @@ nav ul a.li__a, .add-form__header ul a.li__a, .header__app-bar ul a.li__a {
 .p__icon {
   vertical-align: text-bottom; }
 
-.header__tabs--state-hidden {
+.header__tabs--hidden {
   display: none; }
+
+.collapsible-body__p {
+  margin-top: 0; }
 
 .checkbox-html:not(:checked), .checkbox-html:checked {
   margin-top: 3px;

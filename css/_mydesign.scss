@@ -1,5 +1,9 @@
-.header__tabs--state-hidden {
+.header__tabs--hidden {
 	display: none;
+}
+
+.collapsible-body__p {
+	margin-top: 0;
 }
 
 .checkbox-html:not(:checked), .checkbox-html:checked {
