@@ -5,6 +5,7 @@ body {
 
 .body__main {
 	margin-bottom: 56px;
+	overflow-x: hidden;
 }
 
 /* app bar */
@@ -24,4 +25,9 @@ body {
 	line-height: 32px;
 	margin: 0;
 	padding: 8px 16px;
+}
+
+/* helper classes */
+.hidden {
+	display: none;
 }

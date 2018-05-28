@@ -38,11 +38,11 @@
         <div class="row">
           {{#each this}}
             <div class="col s12 m6">
-              <div class="cards-wrapper__card card swipe-elem ">
-                <div class="card__action_wrapper--state-completed hidden">
+              <div class="cards-wrapper__card card swipe-elem">
+                <div class="card__action_wrapper--completed card__action_wrapper--hidden">
                   <i class="material-icons">done</i>
                 </div>
-                <div class="card__action_wrapper--state-canceled hidden">
+                <div class="card__action_wrapper--canceled card__action_wrapper--hidden">
                   <i class="material-icons">clear</i>
                 </div>
                 <div class="card-image">
@@ -127,7 +127,7 @@
                     </label>
                   </p>
                   <div class="right-align">
-                    <button data-icon="checkbox-1" data-value="1" data-element="0" class="checkbox-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="checkbox-1" data-value="1" data-id="0" class="checkbox-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
@@ -144,7 +144,7 @@
                     <label for="checkbox-type2">Checkbox</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="checkbox-2" data-value="2" data-element="0" class="checkbox-2 btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="checkbox-2" data-value="2" data-id="0" class="checkbox-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
@@ -167,7 +167,7 @@
                     <label for="datepicker-type1">Date</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="datepicker-1" data-value="1" data-element="1" class="datepicker-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="datepicker-1" data-value="1" data-id="1" class="datepicker-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
@@ -184,7 +184,7 @@
                     <label for="datepicker-type2">Date</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="datepicker-2" data-value="2" data-element="1" class="datepicker-2 btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="datepicker-2" data-value="2" data-id="1" class="datepicker-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
@@ -207,7 +207,7 @@
                     <label for="input-type1">Text</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="input-1" data-value="1" data-element="2" class="input-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="input-1" data-value="1" data-id="2" class="input-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
@@ -224,7 +224,7 @@
                     <label for="input-type2" class="input-elem-group__label input-test browser-default">Text</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="input-2" data-value="2" data-element="2" class="input-2 btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="input-2" data-value="2" data-id="2" class="input-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
@@ -251,7 +251,7 @@
                     </select>
                   </div>
                   <div class="right-align">
-                    <button data-icon="select-1" data-value="1" data-element="3" class="select-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="select-1" data-value="1" data-id="3" class="select-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
@@ -272,7 +272,7 @@
                     </select>
                   </div>
                   <div class="right-align">
-                    <button data-icon="select-2" data-value="2" data-element="3" class="select-2 btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="select-2" data-value="2" data-id="3" class="select-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
@@ -295,7 +295,7 @@
                     <label for="timepicker-type1">Time</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="timepicker-1" data-value="1" data-element="4" class=" timepicker-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="timepicker-1" data-value="1" data-id="4" class="timepicker-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
@@ -312,13 +312,16 @@
                     <label for="timepicker-type2">Time</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="timepicker-2" data-value="2" data-element="4" class="timepicker-2 btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="timepicker-2" data-value="2" data-id="4" class="timepicker-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
             </ul>
           </div>
         </div>
+      </div>
+      <div class="row template__button-wrapper">
+        <button class="btn button-wrapper__btn--back">Back</button>
       </div>
     </script>
     <script id="mydesign-options-1-template" type="text/x-handlebars-template">
@@ -340,7 +343,7 @@
                     <label for="speech-type1">Text</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="speech-1" data-value="1" data-element="5" class="speech-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="speech-1" data-value="1" data-id="5" class="speech-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
@@ -358,7 +361,59 @@
                     <label for="speech-type2" class="input-elem-group__label input-test">Text</label>
                   </div>
                   <div class="right-align">
-                    <button data-icon="speech-2" data-value="2" data-element="5" class="speech-2 btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="speech-2" data-value="2" data-id="5" class="speech-2 btn btn-choose waves-effect">Choose</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="swipe" class="tabs__div col s12 hidden">
+          <div class="row">
+            <ul class="collapsible">
+              <li class="swipe__type1 swipe__type1--state-chosen">
+                <div class="collapsible-header">
+                  <span class="collapsible-header__span-swipe-1 hidden elem-9 collapsible-header__span">
+                    <i class="material-icons collapsible-header__icon">done</i>
+                  </span>
+                  Block swipe movement
+                </div>
+                <div class="collapsible-body">
+                  <div class="row">
+                    <div class="col s12 m6">
+                      <div class="card">
+                        <div class="card-content">
+                          <span class="card-title">A card</span>
+                          <p>This card does not allow swipe movement.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="right-align">
+                    <button data-icon="swipe-1" data-value="1" data-id="9" class="swipe-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                  </div>
+                </div>
+              </li>
+              <li class="speech__type2">
+                <div class="collapsible-header">
+                  <span class="collapsible-header__span-swipe-2 hidden elem-9 collapsible-header__span">
+                    <i class="material-icons collapsible-header__icon">done</i>
+                  </span>
+                  Allow swipe movement
+                </div>
+                <div class="collapsible-body">
+                  <div class="row">
+                    <div class="col s12 m6">
+                      <div class="card swipe-elem swipe-test">
+                        <div class="card-content">
+                          <span class="card-title">A card</span>
+                          <p>This card allows swipe movement.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="right-align">
+                    <button data-icon="swipe-2" data-value="2" data-id="9" class="swipe-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
@@ -378,7 +433,7 @@
                 <div class="collapsible-body">
                   block
                   <div class="right-align">
-                    <button data-icon="voice-1" data-value="1" data-element="8" class="voice-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="voice-1" data-value="1" data-id="8" class="voice-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
@@ -392,13 +447,16 @@
                 <div class="collapsible-body">
                   allow
                   <div class="right-align">
-                    <button data-icon="voice-2" data-value="2" data-element="8" class="voice-2 btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="voice-2" data-value="2" data-id="8" class="voice-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
             </ul>
           </div>
         </div>
+      </div>
+      <div class="row template__button-wrapper">
+        <button class="btn button-wrapper__btn--back">Back</button>
       </div>
     </script>
     <script id="mydesign-options-2-template" type="text/x-handlebars-template">
@@ -416,7 +474,7 @@
                 <div class="collapsible-body">
                   cards
                   <div class="right-align">
-                    <button data-icon="events-1" data-value="1" data-element="6" class="events-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="events-1" data-value="1" data-id="6" class="events-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
@@ -430,7 +488,7 @@
                 <div class="collapsible-body">
                   list
                   <div class="right-align">
-                    <button data-icon="events-2" data-value="2" data-element="6" class="events-2 btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="events-2" data-value="2" data-id="6" class="events-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
@@ -450,7 +508,7 @@
                 <div class="collapsible-body">
                   show!
                   <div class="right-align">
-                    <button data-icon="images-1" data-value="1" data-element="7" class="images-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
+                    <button data-icon="images-1" data-value="1" data-id="7" class="images-1 btn btn-choose btn-choose--state-chosen waves-effect">Chosen</button>
                   </div>
                 </div>
               </li>
@@ -464,13 +522,16 @@
                 <div class="collapsible-body">
                   hide
                   <div class="right-align">
-                    <button data-icon="images-2" data-value="2" data-element="7" class="images-2 btn btn-choose waves-effect">Choose</button>
+                    <button data-icon="images-2" data-value="2" data-id="7" class="images-2 btn btn-choose waves-effect">Choose</button>
                   </div>
                 </div>
               </li>
             </ul>
           </div>
         </div>
+      </div>
+      <div class="row template__button-wrapper">
+        <button class="btn button-wrapper__btn--back">Back</button>
       </div>
     </script>
     <script id="pastevents-template" type="text/x-handlebars-template">

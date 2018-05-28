@@ -19,16 +19,16 @@ var setUser = function setUser(user_new) {
       { 'id': 6, 'type': 2, 'name': 'events', 'value': 1 },
       { 'id': 7, 'type': 2, 'name': 'images', 'value': 1 },
       { 'id': 8, 'type': 1, 'name': 'voice', 'value': 1 },
-      { 'id': 9, 'type': 1, 'name': 'speech', 'value': 1 },
+      { 'id': 9, 'type': 1, 'name': 'swipe', 'value': 1 },
     ]));
   }
   userPreferencesDesign();
 };
 
-var setNewItem = function setNewItem(element, value) {
+var setNewItem = function setNewItem(id, value) {
   var user;
   user = getUser();
-  user[element].value = value;
+  user[id].value = value;
   setUser(JSON.stringify(user));
 }
 
@@ -293,23 +293,23 @@ $(function(){
     $(this).parent().parent().parent().find('.card.swipe-elem').trigger('swipeleft');
   });
 
-  $('.card.swipe-elem').on('swiperight', function() {
-    $('.card__action_wrapper--state-completed').removeClass('hidden');
+  $('main').on('swiperight', '.card.swipe-elem', function() {
+    $(this).find('.card__action_wrapper--completed').removeClass('card__action_wrapper--hidden');
     $(this).animate({
       right: '-350px',
       opacity: 0,
     }, 1500, function() {
-      $(this).addClass('hidden');
+      $(this).addClass('cards-wrapper__card--hidden');
     });
   });
 
-  $('.card.swipe-elem').on('swipeleft', function() {
-    $('.card__action_wrapper--state-canceled').removeClass('hidden');
+  $('main').on('swipeleft', '.card.swipe-elem', function() {
+    $(this).find('.card__action_wrapper--canceled').removeClass('card__action_wrapper--hidden');
     $(this).animate({
       left: '-350px',
       opacity: 0,
     }, 1500, function() {
-      $(this).addClass('hidden');
+      $(this).addClass('cards-wrapper__card--hidden');
     });
   });
 
@@ -352,6 +352,10 @@ $(function(){
   });
 
   /* btns clicks */
+  $('main').on('click', '.button-wrapper__btn--back', function() {
+    $('#mydesign').trigger('click');
+  });
+
   $('main').on('click', '.main__btn--add', function() {  
     $(this).addClass('hidden'); 
     $('.body__add-form-section').removeClass('hidden');
@@ -370,13 +374,13 @@ $(function(){
   });
 
   $('main').on('click', '.btn-choose', function() {
-    setNewItem($(this).attr('data-element'), $(this).attr('data-value'));
+    setNewItem($(this).attr('data-id'), $(this).attr('data-value'));
 
     $('.btn-choose').removeClass('btn-choose--state-chosen').html('Choose');
     $(this).addClass('btn-choose--state-chosen').html('Chosen');
 
     var icon_elem = $(this).attr('data-icon');
-    $('.collapsible-header__span.elem-' + $(this).attr('data-element')).addClass('hidden');
+    $('.collapsible-header__span.elem-' + $(this).attr('data-id')).addClass('hidden');
     $('.collapsible-header__span-' + icon_elem).removeClass('hidden');
   });
 

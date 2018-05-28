@@ -3,11 +3,19 @@
 	margin-top: 0;
 }
 
+.cards-wrapper__card--hidden {
+	display: none;
+}
+
 .cards-wrapper__card .card__card-content p {
 	margin: 5px 0;
 }
 
-.card__action_wrapper--state-completed {
+.card__action_wrapper--hidden {
+	display: none;
+}
+
+.card__action_wrapper--completed {
 	left: -75px;
 	line-height: 250px;
 	position: absolute;
@@ -17,7 +25,7 @@
 	}
 }
 
-.card__action_wrapper--state-canceled {
+.card__action_wrapper--canceled {
 	right: -75px;
 	line-height: 250px;
 	position: absolute;
