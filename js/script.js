@@ -293,23 +293,40 @@ $(function(){
     $(this).parent().parent().parent().find('.card.swipe-elem').trigger('swipeleft');
   });
 
-  $('main').on('swiperight', '.card.swipe-elem', function() {
-    $(this).find('.card__action_wrapper--completed').removeClass('card__action_wrapper--hidden');
+  /* hammer.js actions */
+  $('main').hammer({domEvents:true}).on('swiperight', '.card.swipe-elem', function() {
     $(this).animate({
       right: '-350px',
       opacity: 0,
-    }, 1500, function() {
+    }, 1000, function() {
       $(this).addClass('cards-wrapper__card--hidden');
     });
   });
 
-  $('main').on('swipeleft', '.card.swipe-elem', function() {
-    $(this).find('.card__action_wrapper--canceled').removeClass('card__action_wrapper--hidden');
+  $('main').hammer({domEvents:true}).on('swipeleft', '.card.swipe-elem', function() {
     $(this).animate({
       left: '-350px',
       opacity: 0,
-    }, 1500, function() {
+    }, 1000, function() {
       $(this).addClass('cards-wrapper__card--hidden');
+    });
+  });
+
+  $('main').hammer({domEvents:true}).on('swipeleft', '.card.swipe-test', function() {
+    $(this).animate({
+      left: '-350px',
+      opacity: 0,
+    }, 1000, function() {
+      $(this).css({'opacity': 1, 'left': 0});
+    });
+  });
+
+  $('main').hammer({domEvents:true}).on('swiperight', '.card.swipe-test', function() {
+    $(this).animate({
+      right: '-350px',
+      opacity: 0,
+    }, 1000, function() {
+      $(this).css({'opacity': 1, 'right': 0});
     });
   });
 
