@@ -23,6 +23,7 @@ var filesToCache = [
   'js/materialize.min.js',
   'js/app.js',
   'js/script.js',
+  'js/db.json',
   'images/personal.jpg',
   'images/pets.jpg',
   'images/exercise.jpg',
@@ -59,15 +60,30 @@ self.addEventListener('activate', function(e) {
 });
 
 self.addEventListener('fetch', function(e) {
-  console.log('[Service Worker] Fetch', e.request.url);
+  e.respondWith(
+    caches.match(e.request).then(function(r) {
+          console.log('[Service Worker] Fetching resource: '+e.request.url);
+      return r || fetch(e.request).then(function(response) {
+                return caches.open(cacheName).then(function(cache) {
+          console.log('[Service Worker] Caching new resource: '+e.request.url);
+          cache.put(e.request, response.clone());
+          return response;
+        });
+      });
+    })
+  );
+});
+
+// self.addEventListener('fetch', function(e) {
+//   console.log('[Service Worker] Fetch', e.request.url);
   /*
    * The app is asking for app shell files. In this scenario the app uses the
    * "Cache, falling back to the network" offline strategy:
    * https://jakearchibald.com/2014/offline-cookbook/#cache-falling-back-to-network
    */
-    e.respondWith(
-      caches.match(e.request).then(function(response) {
-        return response || fetch(e.request);
-      })
-    );
-});
+//     e.respondWith(
+//       caches.match(e.request).then(function(response) {
+//         return response || fetch(e.request);
+//       })
+//     );
+// });
