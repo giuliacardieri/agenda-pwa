@@ -18,11 +18,11 @@ var filesToCache = [
   'index.html',
   'css/style.css',
   'js/jquery.js',
+  'js/hammer.min.js',
+  'js/jquery.hammer.js',
   'js/materialize.min.js',
-  'js/jquery.mobile-events.min.js',
   'js/app.js',
   'js/script.js',
-  'js/db.json',
   'images/personal.jpg',
   'images/pets.jpg',
   'images/exercise.jpg',
@@ -33,7 +33,7 @@ self.addEventListener('install', function(e) {
   e.waitUntil(
     caches.open(cacheName).then(function(cache) {
       console.log('[ServiceWorker] Caching app shell');
-      console.log('filesToCache ' + filesToCache);
+      console.log('filesToCache' + filesToCache);
       return cache.addAll(filesToCache);
     })
   );

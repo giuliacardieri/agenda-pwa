@@ -80,6 +80,12 @@ var userPreferencesDesign = function userPreferencesDesign() {
   } else if (user[5].value == 1) {
     $('.speech-elem:not(.speech-test)').addClass('hidden');
   }
+
+  if (user[9].value == 2) {
+    $('.card').addClass('swipe-elem');
+  } else if (user[9].value == 1) {
+    $('.card').removeClass('swipe-elem');
+  }
 }
 
 var startSpeech = function startSpeech() {
@@ -227,6 +233,7 @@ var findCurrentNav = function findCurrentNav(id) {
     case 'mydesign': loadUserPrefsTemplate($('#mydesign-template').html()); break;
     case 'pastevents': loadDBTemplate($('#pastevents-template').html()); break;
   }
+  userPreferencesDesign();
 }
 
 /* fake db functions*/

@@ -30,28 +30,8 @@
 	margin: 5px 0;
 }
 
-.card__action_wrapper--hidden {
+.card__card-image--hidden {
 	display: none;
-}
-
-.card__action_wrapper--completed {
-	left: -75px;
-	line-height: 250px;
-	position: absolute;
-	i {
-		color: color("green", "base");
-		font-size: 44pt;
-	}
-}
-
-.card__action_wrapper--canceled {
-	right: -75px;
-	line-height: 250px;
-	position: absolute;
-	i {
-		color: color("red", "base");
-		font-size: 44pt;
-	}
 }
 
 /* buttons */
